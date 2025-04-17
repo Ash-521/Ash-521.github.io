@@ -8,13 +8,14 @@
     <link href="https://fonts.cdnfonts.com/css/samsung-sans-4" rel="stylesheet">
     <style>
         :root {
-            --primary-color: #800020;
-            --primary-dark: #600018;
-            --primary-darker: #400010;
-            --primary-light: #990024;
-            --background-light: #f4f4f4;
-            --text-color: #333;
-            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+            --primary-color: #820022;
+            --primary-dark: #5e0015;
+            --primary-darker: #2b000d;
+            --primary-light: #a30033;
+            --background-light: #ffffff;
+            --background-gradient: linear-gradient(to right, #ece9e6, var(--background-light));
+            --text-color: #222;
+            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
         }
         
         * {
@@ -24,8 +25,8 @@
         }
         
         body {
-            font-family: 'Samsung Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: var(--background-light);
+            font-family: 'Samsung Sans', sans-serif;
+            background: var(--background-gradient);
             color: var(--text-color);
             line-height: 1.6;
         }
@@ -43,7 +44,7 @@
         }
         
         header {
-            background: linear-gradient(135deg, #600018, var(--primary-color));
+            background: linear-gradient(135deg, #460018, var(--primary-color));
             color: white;
             padding: 2rem 1rem;
             text-align: center;
@@ -52,26 +53,22 @@
         
         .site-title {
             margin: 0;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            font-family: 'Samsung Sans', sans-serif;
         }
         
         .main-nav {
-            background: var(--primary-light);
+            background: var(--primary-darker);
             padding: 1rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 1rem;
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 100;
         }
         
         .nav-link {
-            color: white;
+            color: #fff;
             text-decoration: none;
             font-weight: 600;
             padding: 0.5rem 1rem;
@@ -92,41 +89,36 @@
         }
         
         .main-content {
-            padding: 2rem 1rem;
+            padding: 3rem 1.5rem;
             max-width: 1200px;
             margin: auto;
         }
         
         .card {
             background: white;
-            margin: 1.5rem auto;
-            padding: 2rem;
-            border-radius: 10px;
+            margin: 2rem 0;
+            padding: 2rem 2.5rem;
+            border-radius: 14px;
             box-shadow: var(--box-shadow);
             transition: transform 0.3s ease;
-            max-width: 800px;
-            text-align: left;
         }
         
         .card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-3px);
         }
         
         .section-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-family: 'Samsung Sans', sans-serif;
-            font-weight: 600;
-            text-align: center;
+            font-size: 2rem;
+            color: #66001a;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
         }
         
         .subsection-title {
-            font-size: 1.4rem;
-            color: var(--primary-light);
-            margin: 1.5rem 0 0.75rem;
-            font-family: 'Samsung Sans', sans-serif;
-            font-weight: 600;
+            margin-top: 2rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
         }
         
         .section-content {
@@ -149,24 +141,30 @@
         }
         
         .site-footer {
-            background: var(--primary-darker);
+            background: #180009;
             color: white;
             text-align: center;
-            padding: 1.5rem;
-            margin-top: 2rem;
+            padding: 2rem;
+            margin-top: 4rem;
         }
         
         .table-of-contents {
-            background-color: rgba(153, 0, 36, 0.05);
+            background-color: rgba(130, 0, 34, 0.05);
             border-left: 4px solid var(--primary-color);
-            padding: 1rem 1.5rem;
-            margin: 1rem 0 2rem;
-            border-radius: 0 8px 8px 0;
+            padding: 1.5rem 2rem;
+            margin-bottom: 2rem;
+            border-radius: 0 14px 14px 0;
         }
         
         .table-of-contents h3 {
             color: var(--primary-color);
-            margin-bottom: 0.75rem;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+        
+        .toc-list {
+            list-style: none;
+            padding-left: 0;
         }
         
         .toc-link {
@@ -175,30 +173,20 @@
             font-weight: 500;
             transition: all 0.2s ease;
             display: inline-block;
-            margin: 0.25rem 0;
+            margin: 0.5rem 0;
+            padding: 0.3rem 0.8rem;
+            border-radius: 4px;
         }
         
         .toc-link:hover {
-            color: var(--primary-light);
+            background-color: rgba(130, 0, 34, 0.1);
             transform: translateX(3px);
         }
         
         /* Responsive design for different screen sizes */
         @media (max-width: 768px) {
             .site-title {
-                font-size: 2rem;
-            }
-            
-            .main-nav {
-                flex-direction: column;
-                padding: 0.5rem;
-                position: static;
-            }
-            
-            .nav-link {
-                margin: 0.25rem 0;
-                width: 100%;
-                text-align: center;
+                font-size: 2.2rem;
             }
             
             .card {
@@ -206,22 +194,26 @@
             }
             
             .section-title {
-                font-size: 1.5rem;
+                font-size: 1.7rem;
+            }
+            
+            .table-of-contents {
+                padding: 1rem 1.5rem;
             }
         }
         
         @media (max-width: 480px) {
-            .site-title {
-                font-size: 1.8rem;
+            .main-content {
+                padding: 2rem 1rem;
             }
             
             .card {
-                padding: 1.25rem;
-                margin: 1rem auto;
+                padding: 1.2rem;
+                margin: 1.5rem 0;
             }
             
-            .main-content {
-                padding: 1rem 0.5rem;
+            .section-title {
+                font-size: 1.5rem;
             }
             
             ul, ol {
@@ -247,7 +239,7 @@
     <main class="main-content">
         <div class="card table-of-contents">
             <h3>Quick Navigation</h3>
-            <ul>
+            <ul class="toc-list">
                 <li><a href="#expo" class="toc-link">What is EXPO?</a></li>
                 <li><a href="#xmp" class="toc-link">What is XMP?</a></li>
                 <li><a href="#activation" class="toc-link">How to Activate EXPO and XMP</a></li>
