@@ -3,85 +3,217 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PC Knowledge Hub - Your resource for hardware, software and troubleshooting information">
     <title>PC Knowledge Hub</title>
+    <link href="https://fonts.cdnfonts.com/css/samsung-sans-4" rel="stylesheet">
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        :root {
+            --primary-color: #800020;
+            --primary-dark: #600018;
+            --primary-darker: #400010;
+            --primary-light: #990024;
+            --background-light: #f4f4f4;
+            --text-color: #333;
+            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            text-align: center;
-            background-color: #f4f4f4;
-            color: #333;
         }
-        header, footer {
-            background-color: #800020;
+        
+        body {
+            font-family: 'Samsung Sans', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--background-light);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #600018, var(--primary-color));
             color: white;
-            padding: 1.5rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
-        nav {
-            background-color: #990024;
-            padding: 0.75rem;
+        
+        .site-title {
+            margin: 0;
+            font-size: 2.5rem;
+            font-weight: 700;
+            font-family: 'Samsung Sans', sans-serif;
         }
-        nav a {
+        
+        .main-nav {
+            background: var(--primary-light);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
             color: white;
             text-decoration: none;
-            margin: 0 1rem;
-            font-size: 1.2rem;
-            font-weight: bold;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
         }
-        main {
-            padding: 2rem;
+        
+        .nav-link.active {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
         }
-        section {
+        
+        .nav-link:hover, 
+        .nav-link:focus {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+            outline: none;
+        }
+        
+        .main-content {
+            padding: 2rem 1rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .card {
             background: white;
-            margin: 1rem auto;
-            padding: 1.5rem;
+            margin: 1.5rem auto;
+            padding: 1.5rem 2rem;
             border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
             max-width: 800px;
+            text-align: center;
         }
-        h2 {
-            color: #800020;
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+            font-family: 'Samsung Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .section-content {
+            margin-top: 1rem;
+            line-height: 1.7;
+        }
+        
+        .site-footer {
+            background: var(--primary-darker);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 2rem;
+        }
+        
+        /* Responsive design for different screen sizes */
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2rem;
+            }
+            
+            .main-nav {
+                flex-direction: column;
+                padding: 0.5rem;
+            }
+            
+            .nav-link {
+                margin: 0.25rem 0;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .card {
+                padding: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1rem;
+                margin: 1rem auto;
+            }
+            
+            .main-content {
+                padding: 1rem 0.5rem;
+            }
         }
     </style>
-    
-    
 </head>
 <body>
     <header>
-        <h1>Welcome to PC Knowledge Hub</h1>
+        <h1 class="site-title">Welcome to PC Knowledge Hub</h1>
     </header>
-    <nav>
-        <a href="https://ash-521.github.io">Home</a>
-        <a href="newbie.html">Newbie</a>
-        <a href="hardware.html">Hardware</a>
-        <a href="software.html">Software</a>
-        <a href="troubleshooting.html">Troubleshooting</a>
-        <a href="vegeta-shortcut.html">Vegeta-Short(cut)</a>
+
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="https://ash-521.github.io" class="nav-link active" aria-current="page">Home</a>
+        <a href="newbie.html" class="nav-link">Newbie</a>
+        <a href="hardware.html" class="nav-link">Hardware</a>
+        <a href="software.html" class="nav-link">Software</a>
+        <a href="troubleshooting.html" class="nav-link">Troubleshooting</a>
+        <a href="vegeta-shortcut.html" class="nav-link">Vegeta-Short(cut)</a>
     </nav>
-    <main>
-        <section id="home">
-            <p>This is my personal GitHub Page where I share knowledge about PCs, hardware, software, and troubleshooting tips.</p>
+
+    <main class="main-content">
+        <section class="card" id="home">
+            <p class="section-content">This is my personal GitHub Page where I share knowledge about PCs, hardware, software, and troubleshooting tips.</p>
         </section>
-        <section id="newbie">
-            <h2>Newbie</h2>
-            <p>Information for newbies or answers for questions that are ask a lot (XMP , ...) </p>
+        
+        <section class="card" id="newbie">
+            <h2 class="section-title">Newbie</h2>
+            <p class="section-content">Information for newbies or answers for questions that are asked a lot (XMP, overclocking, basic PC setup, etc.)</p>
         </section>
-        <section id="hardware">
-            <h2>Hardware</h2>
-            <p>Information about PC components like CPUs, GPUs, RAM, and more.</p>
+        
+        <section class="card" id="hardware">
+            <h2 class="section-title">Hardware</h2>
+            <p class="section-content">Information about PC components like CPUs, GPUs, RAM, and more.</p>
         </section>
-        <section id="software">
-            <h2>Software</h2>
-            <p>Operating systems, applications, and optimization tips.</p>
+        
+        <section class="card" id="software">
+            <h2 class="section-title">Software</h2>
+            <p class="section-content">Operating systems, applications, and optimization tips.</p>
         </section>
-        <section id="troubleshooting">
-            <h2>Troubleshooting</h2>
-            <p>Common PC issues and how to fix them.</p>
+        
+        <section class="card" id="troubleshooting">
+            <h2 class="section-title">Troubleshooting</h2>
+            <p class="section-content">Common PC issues and how to fix them.</p>
         </section>
     </main>
-    <footer>
-        <p>&copy; 2025 Phoenix52  Alpha 1</p>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Phoenix52 Alpha 1</p>
     </footer>
 </body>
 </html>
