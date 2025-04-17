@@ -3,55 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vegeta-Short(cut)</title>
+    <title>Vegeta-Short(cut) | Quicklinks for PC-Building</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        * {
+            box-sizing: border-box;
+        }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: 'Inter', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-            text-align: center;
+            background: linear-gradient(to right, #ece9e6, #ffffff);
+            color: #222;
         }
-        header, footer {
-            background-color: #800020;
+        header {
+            background: linear-gradient(135deg, #460018, #820022);
             color: white;
-            padding: 1.5rem;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+        }
+        nav {
+            background: #2b000d;
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        nav a.active {
+            background-color: #5e0015;
+            transform: scale(1.05);
+        }
+        nav a:hover {
+            background-color: #5e0015;
+            transform: scale(1.05);
         }
         main {
-            padding: 2rem;
+            padding: 3rem 1.5rem;
+            max-width: 1200px;
+            margin: auto;
         }
         section {
             background: white;
-            margin: 1rem auto;
-            padding: 1.5rem;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            max-width: 800px;
+            margin: 2rem 0;
+            padding: 2rem 2.5rem;
+            border-radius: 14px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+            transition: transform 0.3s ease;
+        }
+        section:hover {
+            transform: translateY(-3px);
         }
         h2 {
-            color: #800020;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            color: #66001a;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid #a0002f;
+            padding-bottom: 0.5rem;
+        }
+        h3 {
+            margin-top: 2rem;
+            color: #820022;
+            font-size: 1.3rem;
         }
         ul {
             list-style: none;
             padding: 0;
         }
         li {
-            margin: 1rem 0;
+            margin: 0.75rem 0;
         }
         a {
-            text-decoration: none;
-            background-color: #990024;
+            background-color: #820022;
             color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 8px;
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
             display: inline-block;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
         }
         a:hover {
-            background-color: #b3002d;
+            background-color: #a30033;
+            transform: translateY(-2px);
+        }
+        footer {
+            background: #180009;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
         }
     </style>
 </head>
@@ -60,54 +116,83 @@
         <h1>Vegeta-Short(cut)</h1>
     </header>
 
-    <main>
-        <section>
-            <h2>useful links</h2>
-            <ul>
-                <li><a href="https://pcpartpicker.com/" target="_blank">PCPartPicker</a></li>
-                <li><a href="https://www.reddit.com/r/PcBuildHelp/" target="_blank">Reddit - r/PcBuildHelp Subreddit</a></li>
-                <li><a href="https://www.reddit.com/r/buildapc/" target="_blank">Reddit - r/buildapc </a></li>
-            </ul>
-        </section>
+    <nav>
+        <a href="https://ash-521.github.io/">Home</a>
+        <a href="newbie.html">Newbie</a>
+        <a href="hardware.html">Hardware</a>
+        <a href="software.html">Software</a>
+        <a href="troubleshooting.html">Troubleshooting</a>
+        <a href="vegeta-shortcut.html" class="active">Vegeta-Short(cut)</a>
+    </nav>
 
     <main>
         <section>
-            <h2>Drivers</h2>
+            <h2>General Tools</h2>
+            <h3>Build Planning</h3>
             <ul>
-                <li><a href="https://www.nvidia.com/en-us/drivers/" target="_blank">NVIDIA Drivers</a></li>
-                <li><a href="https://www.amd.com/en/support" target="_blank">AMD Drivers</a></li>
-                <li><a href="https://www.intel.com/content/www/us/en/download-center/home.html" target="_blank">Intel Drivers</a></li>
+                <li><a href="https://pcpartpicker.com/" target="_blank">PCPartPicker – Build tool & price comparison</a></li>
+            </ul>
+            <h3>PSU Tier List</h3>
+            <ul>
+                <li><a href="https://docs.google.com/spreadsheets/d/1akCHL7Vhzk_EhrpIGkz8zTEvYfLDcaSpZRB6Xt6JWkc/edit?gid=1973454078" target="_blank">PSU Tier List – Community-maintained spreadsheet</a></li>
+            </ul>
+            <h3>Communities</h3>
+            <ul>
+                <li><a href="https://www.reddit.com/r/PcBuildHelp/" target="_blank">r/PcBuildHelp – Ask specific questions</a></li>
+                <li><a href="https://www.reddit.com/r/buildapc/" target="_blank">r/buildapc – General PC building subreddit</a></li>
             </ul>
         </section>
 
         <section>
-            <h2>🇩🇪 Germany</h2>
+            <h2>Driver Downloads</h2>
             <ul>
-                <li><a href="https://geizhals.de/" target="_blank">Geizhals Deutschland</a></li>
-                <li><a href="https://www.mindfactory.de/" target="_blank">Mindfactory (not so recommended currently)</a></li>
-                <li><a href="https://www.caseking.de/" target="_blank">Caseking</a></li>
-                <li><a href="https://www.notebooksbilliger.de/" target="_blank">Notebooksbilliger (AT - .at , NL - nl.nbb.com)</a></li>
-                <li><a href="https://www.alternate.de/" target="_blank">Alternate (.at , .nl , .be , .dk , .fr ...)</a></li>
+                <li><a href="https://www.nvidia.com/en-us/drivers/" target="_blank">NVIDIA – GPU drivers</a></li>
+                <li><a href="https://www.amd.com/en/support" target="_blank">AMD – CPU & GPU drivers</a></li>
+                <li><a href="https://www.intel.com/content/www/us/en/download-center/home.html" target="_blank">Intel – Drivers & tools</a></li>
             </ul>
         </section>
 
         <section>
-            <h2>🇦🇹 Austria</h2>
-            <ul>
-                <li><a href="https://geizhals.at/" target="_blank">Geizhals Österreich</a></li>
-                <li><a href="https://www.e-tec.at/" target="_blank">E-Tec</a></li>
-            </ul>
-        </section>
+            <h2>Shops by Country</h2>
 
-        <section>
-            <h2>🇺🇸 United States</h2>
+            <h3>Germany 🇩🇪</h3>
             <ul>
-                <li><a href="https://www.newegg.com/" target="_blank">Newegg</a></li>
-                <li><a href="https://www.amazon.com/" target="_blank">Amazon (US)</a></li>
-                <li><a href="https://pcpartpicker.com/" target="_blank">PCPartPicker</a></li>
+                <li><a href="https://geizhals.de/" target="_blank">Geizhals.de – German price comparison</a></li>
+                <li><a href="https://www.mindfactory.de/" target="_blank">Mindfactory – Competitive prices (mixed reviews)</a></li>
+                <li><a href="https://www.caseking.de/" target="_blank">Caseking – Premium hardware</a></li>
+                <li><a href="https://www.notebooksbilliger.de/" target="_blank">Notebooksbilliger.de – Main German portal</a></li>
+                <li><a href="https://www.alternate.de/" target="_blank">Alternate.de – With international access</a></li>
+            </ul>
+
+            <h3>Austria 🇦🇹</h3>
+            <ul>
+                <li><a href="https://geizhals.at/" target="_blank">Geizhals.at – Austrian comparison site</a></li>
+                <li><a href="https://www.e-tec.at/" target="_blank">E-Tec – Austrian tech shop</a></li>
+                <li><a href="https://www.alternate.at/" target="_blank">Alternate.at – Austrian version</a></li>
+                <li><a href="https://www.notebooksbilliger.at/" target="_blank">Notebooksbilliger.at – Regional store</a></li>
+            </ul>
+
+            <h3>Netherlands 🇳🇱</h3>
+            <ul>
+                <li><a href="https://www.alternate.nl/" target="_blank">Alternate.nl – Dutch version</a></li>
+                <li><a href="https://www.coolblue.nl/" target="_blank">Coolblue – Large electronics store</a></li>
+                <li><a href="https://www.bol.com/" target="_blank">Bol.com – Marketplace (PC parts included)</a></li>
+                <li><a href="https://tweakers.net/pricewatch/" target="_blank">Tweakers.net – Price comparison + reviews</a></li>
+            </ul>
+
+            <h3>Belgium 🇧🇪</h3>
+            <ul>
+                <li><a href="https://www.alternate.be/" target="_blank">Alternate.be – Belgian version</a></li>
+            </ul>
+
+            <h3>United States 🇺🇸</h3>
+            <ul>
+                <li><a href="https://www.newegg.com/" target="_blank">Newegg – US-based electronics</a></li>
+                <li><a href="https://www.amazon.com/" target="_blank">Amazon US – Large online marketplace</a></li>
             </ul>
         </section>
     </main>
+
     <footer>
         <p>&copy; 2025 Phoenix52 Alpha</p>
     </footer>
