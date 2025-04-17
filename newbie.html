@@ -44,6 +44,21 @@
         h2 {
             color: #800020;
         }
+        h3 {
+            color: #990024;
+        }
+        ul {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            padding-left: 1.5rem;
+        }
+        ol {
+            text-align: left;
+            max-width: 700px;
+            margin: 0 auto 1rem;
+            padding-left: 1.5rem;
+        }
     </style>
 </head>
 <body>
@@ -56,6 +71,7 @@
         <a href="hardware.html/">Hardware</a>
         <a href="software.html/">Software</a>
         <a href="troubleshooting.html/">Troubleshooting</a>
+        <a href="vegeta-shortcut.html">Vegeta-Short(cut)</a>
     </nav>
     <main>
         <section id="expo">
@@ -65,23 +81,54 @@
         </section>
         <section id="xmp">
             <h2>What is XMP?</h2>
-            <p>XMP (Extreme Memory Profile) is a similar technology from Intel that also optimizes RAM performance. Unlike EXPO, which is specific to AMD, XMP is designed for Intel systems. XMP allows you to set the speed and latency of your RAM to a higher level by using pre-configured profiles created by the RAM manufacturer.</p>
+            <p>XMP (Extreme Memory Profile) is a similar technology from Intel that also optimizes RAM performance. Unlike EXPO, which is specific to AMD, XMP is designed for Intel systems (can be used in AMD stuff too, AM4 is only XMP, on AM5 there is EXPO too). XMP allows you to set the speed and latency of your RAM to a higher level by using pre-configured profiles created by the RAM manufacturer.</p>
             <p>This means you don't have to manually tweak your RAM settings to achieve the best performance. You can simply enable the XMP profile in the BIOS, and your RAM will run at its optimal settings.</p>
         </section>
         <section id="activation">
             <h2>How to Activate EXPO and XMP?</h2>
             <p>To enable EXPO or XMP, you'll need to access your system's BIOS. Here are the steps:</p>
             <ol>
-                <li>Restart your PC and press the appropriate key (usually <strong>Del</strong> or <strong>F2</strong>) during boot to enter the BIOS.</li>
-                <li>open EZ mode where you can see it immediatly or find it under Overclock.</li>
+                <li>Restart your PC and press the appropriate key (usually <strong>Del</strong> or <strong>F2</strong>) during boot to enter the BIOS. (spam the key)</li>
+                <li>Open EZ mode where you can see it immediately or find it under Overclock.</li>
                 <li>Enable the appropriate profile (EXPO for AMD (AM5) or XMP for Intel/AMD (AM4)).</li>
-                <li>Save your settings and restart your PC. (save and exit) </li>
+                <li>Save your settings and restart your PC. (save and exit)</li>
             </ol>
             <p>Once you've done this, your RAM will run at the rated settings, and you should notice a performance boost in applications and games.</p>
         </section>
+        <section id="resizable-bar">
+            <h2>What is Resizable BAR?</h2>
+            <p>Resizable BAR (Base Address Register) is a modern feature that allows your CPU to access the full VRAM (video memory) of your GPU instead of just small chunks (like 256 MB). This improves how fast data is transferred between the CPU and GPU, which can boost performance in some games.</p>
+            <p>It was first promoted by AMD in 2020 under the name "Smart Access Memory", with NVIDIA and Intel adding support soon after.</p>
+
+            <h3>Why it matters</h3>
+            <ul>
+                <li>Faster data transfer between CPU and GPU</li>
+                <li>Higher FPS and smoother gameplay in supported games</li>
+                <li>Better use of modern GPUs and system resources</li>
+            </ul>
+
+            <h3>Requirements</h3>
+            <ul>
+                <li><strong>CPU:</strong> AMD (Zen 1 and newer), Intel (8th Gen and newer)</li>
+                <li><strong>GPU:</strong> AMD (RX 5000+), NVIDIA (RTX 30+), Intel (all modern GPUs)</li>
+                <li><strong>Motherboard:</strong> Must support Resizable BAR via BIOS update</li>
+            </ul>
+
+            <p>Support depends on your motherboard and BIOS version. Some older boards (like ASUS Prime X370) support it, while others (like ROG Strix X399-E Gaming) don’t, even if they were released around the same time.</p>
+
+            <h3>How to enable it</h3>
+            <ol>
+                <li>Update your BIOS to the latest version if needed.</li>
+                <li>Enter BIOS by pressing <strong>Del</strong> or <strong>F2</strong> during boot.</li>
+                <li>Look under advanced or PCIe settings for “Resizable BAR” or “Above 4G Decoding”.</li>
+                <li>Enable both options if available, then save and exit.</li>
+            </ol>
+
+            <p><strong>Important:</strong> For Intel users, always double-check that your motherboard supports Resizable BAR – otherwise, you might lose a noticeable chunk of performance.</p>
+        </section>
     </main>
     <footer>
-        <p>&copy; 2025 Phoenix52  1.3v</p>
+        <p>&copy; 2025 Phoenix52 Alpha</p>
     </footer>
 </body>
 </html>
