@@ -4,10 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Vegeta-Short(cut) - Quick access to useful links for PC building and hardware">
-    <meta name="theme-color" content="#820022">
     <title>Vegeta-Short(cut) | Quicklinks for PC Building</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.cdnfonts.com/css/samsung-sans-4" rel="stylesheet">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -17,42 +14,9 @@
             --primary-dark: #5e0015;
             --primary-darker: #2b000d;
             --primary-light: #a30033;
-            --primary-lighter: #cc0033;
-            --secondary-color: #004a82;
-            --secondary-light: #0069b9;
             --background-light: #ffffff;
-            --background-alt: #f8f8f8;
-            --glass-bg: rgba(255, 255, 255, 0.9);
-            --glass-bg-dark: rgba(24, 24, 27, 0.7);
             --text-color: #222;
-            --text-muted: #666;
-            --text-light: #f8f8f8;
             --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-            --box-shadow-hover: 0 12px 30px rgba(130, 0, 34, 0.15);
-            --transition-fast: 0.2s ease;
-            --transition-medium: 0.3s ease;
-            --transition-slow: 0.5s ease;
-            --border-radius: 14px;
-            --border-radius-small: 6px;
-            --border-radius-large: 24px;
-        }
-
-        [data-theme="dark"] {
-            --primary-color: #b30033;
-            --primary-dark: #990033;
-            --primary-darker: #660022;
-            --primary-light: #cc0044;
-            --primary-lighter: #ff0055;
-            --secondary-color: #0069b9;
-            --secondary-light: #0089f2;
-            --background-light: #121212;
-            --background-alt: #1e1e1e;
-            --glass-bg: rgba(24, 24, 27, 0.7);
-            --glass-bg-dark: rgba(12, 12, 14, 0.85);
-            --text-color: #e6e6e6;
-            --text-muted: #aaaaaa;
-            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-            --box-shadow-hover: 0 12px 30px rgba(204, 0, 68, 0.25);
         }
         
         * {
@@ -61,477 +25,187 @@
             padding: 0;
         }
         
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 100px; /* Adjust for fixed header height */
+        }
+        
         body {
-            font-family: 'Samsung Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            background: linear-gradient(135deg, #f5f7fa, var(--background-light));
+            font-family: 'Samsung Sans', sans-serif;
+            background: linear-gradient(to right, #ece9e6, var(--background-light));
             color: var(--text-color);
             line-height: 1.6;
-            transition: background var(--transition-medium), color var(--transition-medium);
-            scroll-behavior: smooth;
-            overflow-x: hidden;
         }
         
-        [data-theme="dark"] body {
-            background: linear-gradient(135deg, #111111, var(--background-light));
-        }
-
-        .container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-        
-        /* Animated Background Effect */
-        .animated-bg {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle at right top, rgba(130, 0, 34, 0.05), transparent 70%), 
-                        radial-gradient(circle at left bottom, rgba(0, 74, 130, 0.05), transparent 70%);
-            opacity: 0.7;
-        }
-        
-        [data-theme="dark"] .animated-bg {
-            background: radial-gradient(circle at right top, rgba(130, 0, 34, 0.1), transparent 70%), 
-                        radial-gradient(circle at left bottom, rgba(0, 74, 130, 0.1), transparent 70%);
-            opacity: 0.5;
-        }
-
-        .animated-bg::before, 
-        .animated-bg::after {
-            content: '';
-            position: absolute;
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            background: rgba(130, 0, 34, 0.08);
-            animation: float 15s infinite alternate ease-in-out;
-        }
-        
-        .animated-bg::before {
-            top: 20%;
-            right: 30%;
-            animation-delay: 0s;
-        }
-        
-        .animated-bg::after {
-            bottom: 30%;
-            left: 25%;
-            width: 300px;
-            height: 300px;
-            background: rgba(0, 74, 130, 0.08);
-            animation-delay: -5s;
-        }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0) scale(1); }
-            50% { transform: translate(40px, 20px) scale(1.1); }
-            100% { transform: translate(-40px, -20px) scale(0.9); }
-        }
-        
-        /* Header Styles */
+        /* Header */
         header {
-            background: linear-gradient(135deg, #3a0011, var(--primary-color));
+            background: linear-gradient(135deg, #460018, var(--primary-color));
             color: white;
-            padding: 2.5rem 1rem;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
+            padding: 2rem 1rem;
             text-align: center;
-        }
-        
-        /* Header background effects */
-        header::before, 
-        header::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-        
-        header::before {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.07)"/></svg>');
-            background-size: 100% 100%;
-            z-index: 1;
-        }
-        
-        header::after {
-            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="2"/></svg>');
-            background-size: 80px 80px;
-            opacity: 0.3;
-            animation: rotate 30s linear infinite;
-        }
-        
-        @keyframes rotate {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
         
         .site-title {
             margin: 0;
-            font-size: 3.5rem;
+            font-size: 3rem;
             font-weight: 700;
-            text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-            background: linear-gradient(90deg, #ffffff, #f0f0f0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: shimmer 3s infinite linear;
-            background-size: 200% 100%;
-            letter-spacing: -0.5px;
-        }
-        
-        @keyframes shimmer {
-            0% { background-position: -100% 0; }
-            100% { background-position: 100% 0; }
-        }
-        
-        .site-subtitle {
-            font-size: 1.2rem;
-            margin-top: 0.8rem;
-            opacity: 0.9;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
         }
         
         /* Navigation */
-        .main-nav-container {
-            background: var(--primary-darker);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
-        }
-        
         .main-nav {
-            padding: 0.8rem 1rem;
+            background: var(--primary-darker);
+            padding: 1rem;
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
-            gap: 0.7rem;
+            gap: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
         }
-
+        
         .nav-link {
             color: #fff;
             text-decoration: none;
             font-weight: 600;
-            padding: 0.5rem 1.2rem;
-            border-radius: var(--border-radius-small);
-            transition: all var(--transition-fast);
-            position: relative;
-            overflow: hidden;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
         }
         
-        .nav-link::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background-color: transparent;
-            transition: background-color var(--transition-fast);
-        }
-        
-        .nav-link.active::before, 
-        .nav-link:hover::before {
-            background-color: rgba(255, 255, 255, 0.7);
-        }
-        
         .nav-link.active {
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
         }
         
         .nav-link:hover, 
         .nav-link:focus {
-            background-color: rgba(255, 255, 255, 0.1);
-            transform: translateY(-2px);
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
             outline: none;
         }
         
-        .nav-link i {
-            font-size: 0.9rem;
-        }
-        
-        /* Floating action buttons */
-        .action-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-            z-index: 100;
-        }
-        
-        .action-button {
-            width: 56px;
-            height: 56px;
-            border-radius: 50%;
-            background: var(--primary-color);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            border: none;
-            font-size: 1.2rem;
-        }
-        
-        .action-button:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
-            background: var(--primary-light);
-        }
-        
-        .action-button:focus {
-            outline: none;
-        }
-        
-        #backToTop {
-            background: var(--secondary-color);
-            opacity: 0;
-            visibility: hidden;
-            transform: scale(0.8);
-            transition: all var(--transition-medium);
-        }
-        
-        #backToTop:hover {
-            background: var(--secondary-light);
-        }
-        
-        #backToTop.visible {
-            opacity: 1;
-            visibility: visible;
-            transform: scale(1);
-        }
-        
-        /* Progress indicator */
-        .scroll-progress {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 3px;
-            background: linear-gradient(90deg, var(--primary-color), var(--primary-light));
-            z-index: 1001;
-            transition: width 0.1s ease;
-        }
-        
-        /* Main content styles */
+        /* Main content */
         .main-content {
-            padding: 3rem 1.5rem;
+            padding: 2rem 1.5rem;
             max-width: 1200px;
             margin: auto;
         }
         
-        /* Search bar styles */
+        /* Search */
         .search-container {
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             position: relative;
         }
         
         .search-input {
             width: 100%;
-            padding: 1rem 3rem 1rem 1.5rem;
-            border: 2px solid transparent;
-            border-radius: var(--border-radius);
+            padding: 0.8rem 2.5rem 0.8rem 1rem;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             font-size: 1rem;
-            transition: all var(--transition-fast);
-            box-shadow: var(--box-shadow);
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            color: var(--text-color);
-        }
-        
-        [data-theme="dark"] .search-input {
-            background: var(--glass-bg-dark);
-            color: var(--text-light);
+            transition: border-color 0.3s ease;
         }
         
         .search-input:focus {
             outline: none;
             border-color: var(--primary-color);
-            box-shadow: 0 0 0 4px rgba(130, 0, 34, 0.1);
+            box-shadow: 0 0 0 3px rgba(130, 0, 34, 0.1);
         }
         
         .search-icon {
             position: absolute;
-            right: 1.2rem;
+            right: 1rem;
             top: 50%;
             transform: translateY(-50%);
-            color: var(--primary-color);
-            pointer-events: none;
+            color: #777;
         }
         
-        /* Card styles */
+        /* Cards */
         .card {
-            background: var(--glass-bg);
-            backdrop-filter: blur(10px);
-            margin: 2.5rem 0;
-            padding: 2.5rem;
-            border-radius: var(--border-radius-large);
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem 2.5rem;
+            border-radius: 14px;
             box-shadow: var(--box-shadow);
-            transition: all var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-        }
-        
-        [data-theme="dark"] .card {
-            background: var(--glass-bg-dark);
+            transition: transform 0.3s ease;
         }
         
         .card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--box-shadow-hover);
+            transform: translateY(-3px);
         }
         
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary-color);
-            border-radius: var(--border-radius-large) 0 0 var(--border-radius-large);
-        }
-        
-        /* Section title styling */
+        /* Section titles */
         .section-title {
-            font-size: 2.2rem;
-            color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.8rem;
-            border-bottom: 2px solid rgba(130, 0, 34, 0.2);
+            font-size: 2rem;
+            color: #66001a;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
             font-weight: 700;
             display: flex;
             align-items: center;
-            gap: 12px;
-            position: relative;
+            gap: 10px;
         }
         
         .section-icon {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            background: rgba(130, 0, 34, 0.1);
-            width: 50px;
-            height: 50px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 8px rgba(130, 0, 34, 0.1);
+            font-size: 1.5rem;
         }
         
-        [data-theme="dark"] .section-icon {
-            background: rgba(130, 0, 34, 0.2);
-        }
-        
-        /* Subsection styling */
+        /* Subsection titles */
         .subsection-title {
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
+            margin-top: 2rem;
             color: var(--primary-color);
-            font-size: 1.4rem;
+            font-size: 1.3rem;
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 10px;
-            padding-bottom: 0.5rem;
-            border-bottom: 1px solid rgba(130, 0, 34, 0.1);
         }
         
-        .subsection-title i {
-            font-size: 1.2rem;
-        }
-        
+        /* Flags */
         .fi {
-            margin-right: 5px;
+            margin-right: 10px;
             border-radius: 2px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-            width: 24px;
-            height: auto;
-            transition: transform var(--transition-fast);
         }
         
-        .subsection-title:hover .fi {
-            transform: scale(1.2);
-        }
-        
-        /* Link styles */
+        /* Links */
         .link-list {
             list-style: none;
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
             gap: 15px;
-            margin-top: 15px;
+            margin-top: 1rem;
         }
         
         .link-item {
-            transition: transform var(--transition-fast);
+            margin: 0.5rem 0;
         }
         
         .resource-link {
             background-color: var(--primary-color);
             color: white;
-            padding: 1rem 1.2rem;
-            border-radius: var(--border-radius-small);
+            padding: 0.8rem 1.2rem;
+            border-radius: 6px;
             display: block;
             font-weight: 600;
             text-decoration: none;
-            transition: all var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
+            transition: all 0.3s ease;
             height: 100%;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        .resource-link::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-            transition: left 0.8s;
-            z-index: -1;
-        }
-        
-        .resource-link:hover::before {
-            left: 100%;
         }
         
         .resource-link:hover,
         .resource-link:focus {
             background-color: var(--primary-light);
             transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(130, 0, 34, 0.2);
             outline: none;
         }
         
-        /* Link description styling */
         .resource-description {
             display: block;
             font-size: 0.85rem;
@@ -540,40 +214,34 @@
             margin-top: 5px;
         }
         
-        /* Country navigation styles */
+        /* Country navigation */
         .country-nav {
-            background: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(10px);
-            padding: 1.2rem;
-            border-radius: var(--border-radius);
-            margin-bottom: 2rem;
+            background: #f8f8f8;
+            padding: 1rem;
+            border-radius: 10px;
+            margin-bottom: 1.5rem;
             display: flex;
             flex-wrap: wrap;
             gap: 10px;
             justify-content: center;
             position: sticky;
-            top: 75px;
-            z-index: 90;
-            box-shadow: var(--box-shadow);
-            transition: all var(--transition-medium);
-        }
-        
-        [data-theme="dark"] .country-nav {
-            background: rgba(30, 30, 30, 0.8);
+            top: 70px; /* Adjust to match the height of your main nav */
+            z-index: 990;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
         }
         
         .country-link {
             background: var(--primary-color);
             color: white;
-            padding: 0.5rem 0.8rem;
-            border-radius: 20px;
             text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
             display: flex;
             align-items: center;
             gap: 8px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: all var(--transition-fast);
+            cursor: pointer;
         }
         
         .country-link:hover {
@@ -582,233 +250,95 @@
         }
         
         .country-link.active {
-            background: var(--secondary-color);
-            box-shadow: 0 2px 8px rgba(0, 74, 130, 0.2);
+            background: #004a82; /* Secondary color for active state */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         }
         
-        .country-link.active:hover {
-            background: var(--secondary-light);
-        }
-        
-        /* Section observers */
-        .section-observer {
-            height: 1px;
-            width: 100%;
-            position: relative;
-            top: -80px;
-            visibility: hidden;
-        }
-        
-        /* Footer styling */
-        .site-footer {
-            background: linear-gradient(135deg, #250010, var(--primary-darker));
+        .show-all-button {
+            background: #333;
             color: white;
-            padding: 3rem 2rem;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .footer-content {
-            position: relative;
-            z-index: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            color: #fff;
-            letter-spacing: -0.5px;
-        }
-        
-        .footer-nav {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-        
-        .footer-nav a {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-            position: relative;
-        }
-        
-        .footer-nav a::after {
-            content: '';
-            position: absolute;
-            bottom: -3px;
-            left: 0;
-            width: 0;
-            height: 1px;
-            background: white;
-            transition: width var(--transition-fast);
-        }
-        
-        .footer-nav a:hover {
-            color: white;
-        }
-        
-        .footer-nav a:hover::after {
-            width: 100%;
-        }
-        
-        .footer-social {
-            display: flex;
-            gap: 15px;
-            margin: 1.5rem 0;
-        }
-        
-        .social-icon {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: white;
-            transition: all var(--transition-fast);
-            text-decoration: none;
-        }
-        
-        .social-icon:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px) rotate(5deg);
-        }
-        
-        .footer-bottom {
-            margin-top: 2rem;
-            text-align: center;
+            border: none;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            cursor: pointer;
             font-size: 0.9rem;
-            color: rgba(255, 255, 255, 0.7);
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
         }
         
-        /* Tooltip styling */
-        .tooltip {
-            position: relative;
+        .show-all-button:hover {
+            background: #555;
+            transform: translateY(-2px);
         }
         
-        .tooltip::after {
-            content: attr(data-tooltip);
-            position: absolute;
-            bottom: 120%;
-            left: 50%;
-            transform: translateX(-50%) scale(0.8);
-            width: max-content;
-            max-width: 200px;
-            padding: 5px 10px;
-            background: var(--primary-darker);
-            color: white;
-            border-radius: 4px;
-            font-size: 0.8rem;
+        /* Country sections */
+        .country-section {
+            transition: opacity 0.3s ease, height 0.3s ease, transform 0.3s ease;
+            overflow: hidden;
+            transform-origin: top;
+        }
+        
+        .country-section.hidden {
             opacity: 0;
-            visibility: hidden;
-            transition: all var(--transition-fast);
-            z-index: 100;
+            height: 0;
+            padding: 0;
+            margin: 0;
             pointer-events: none;
+            transform: scaleY(0);
         }
         
-        .tooltip:hover::after {
-            opacity: 1;
-            visibility: visible;
-            transform: translateX(-50%) scale(1);
-        }
-        
-        /* Section intro styling */
-        .section-intro {
-            background-color: rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem;
-            border-radius: var(--border-radius-small);
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary-color);
-            font-size: 1rem;
-            color: var(--text-color);
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        [data-theme="dark"] .section-intro {
-            background-color: rgba(30, 30, 30, 0.5);
-            color: var(--text-light);
-        }
-        
-        /* Category tags */
-        .category-tag {
-            display: inline-block;
-            padding: 3px 8px;
-            background: rgba(130, 0, 34, 0.1);
-            color: var(--primary-color);
-            border-radius: 12px;
-            font-size: 0.75rem;
-            margin-right: 5px;
-            margin-bottom: 5px;
-        }
-        
-        [data-theme="dark"] .category-tag {
-            background: rgba(130, 0, 34, 0.2);
-            color: rgba(255, 255, 255, 0.9);
-        }
-        
-        /* Animations */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animate-in {
-            opacity: 0;
-            animation: fadeInUp 0.6s ease forwards;
-        }
-        
-        .delay-1 { animation-delay: 0.1s; }
-        .delay-2 { animation-delay: 0.2s; }
-        .delay-3 { animation-delay: 0.3s; }
-        .delay-4 { animation-delay: 0.4s; }
-        .delay-5 { animation-delay: 0.5s; }
-        
-        /* Toast notification */
-        .toast {
+        /* Back to top button */
+        .back-to-top {
             position: fixed;
-            top: 20px;
+            bottom: 20px;
             right: 20px;
             background: var(--primary-color);
             color: white;
-            padding: 12px 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            z-index: 1000;
-            opacity: 0;
-            transform: translateY(-20px);
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
             transition: all 0.3s ease;
-            pointer-events: none;
+            opacity: 0;
+            visibility: hidden;
+            border: none;
+            cursor: pointer;
+            z-index: 1000;
         }
         
-        .toast.visible {
+        .back-to-top.visible {
             opacity: 1;
-            transform: translateY(0);
+            visibility: visible;
+        }
+        
+        .back-to-top:hover {
+            background: var(--primary-light);
+            transform: translateY(-3px);
+        }
+        
+        /* Footer */
+        .site-footer {
+            background: #180009;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
         }
         
         /* Responsive styles */
-        @media (max-width: 992px) {
+        @media (max-width: 1200px) {
             .link-list {
                 grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
             }
-            
-            .country-nav {
-                top: 65px;
-            }
         }
         
-        @media (max-width: 768px) {
+        @media (max-width: 992px) {
             .site-title {
                 font-size: 2.5rem;
             }
@@ -820,153 +350,151 @@
             .section-title {
                 font-size: 1.8rem;
             }
-            
-            .main-nav {
-                padding: 0.5rem;
-            }
-            
-            .nav-link {
-                padding: 0.4rem 0.8rem;
-            }
-            
-            .country-nav {
-                padding: 1rem;
-                top: 60px;
-            }
-            
-            .action-buttons {
-                bottom: 20px;
-                right: 20px;
-            }
-            
-            .action-button {
-                width: 48px;
-                height: 48px;
-            }
         }
         
-        @media (max-width: 576px) {
-            .link-list {
-                grid-template-columns: 1fr;
-            }
-            
+        @media (max-width: 768px) {
             .site-title {
                 font-size: 2.2rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .section-icon {
-                width: 40px;
-                height: 40px;
-                font-size: 1.4rem;
             }
             
             .card {
                 padding: 1.5rem;
             }
             
-            .country-nav {
-                padding: 0.8rem;
-                gap: 5px;
+            .section-title {
+                font-size: 1.6rem;
             }
             
-            .country-link {
-                padding: 0.4rem 0.6rem;
+            .link-list {
+                grid-template-columns: 1fr;
+            }
+            
+            .main-nav {
+                padding: 0.5rem;
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .nav-link {
+                text-align: center;
+                margin: 0.2rem 0;
+            }
+            
+            .search-container {
+                margin-top: 1rem;
+            }
+            
+            .country-nav {
+                top: 0;
+                position: relative;
+                padding: 0.8rem;
+            }
+            
+            .country-link, .show-all-button {
+                padding: 0.4rem 0.8rem;
                 font-size: 0.8rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .site-title {
+                font-size: 1.8rem;
+            }
+            
+            .card {
+                padding: 1.2rem;
+                margin: 1.5rem 0;
+            }
+            
+            .section-title {
+                font-size: 1.4rem;
+            }
+            
+            .subsection-title {
+                font-size: 1.2rem;
+            }
+            
+            .search-input {
+                padding: 0.6rem 2.5rem 0.6rem 1rem;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="animated-bg"></div>
-    <div class="scroll-progress"></div>
-    
     <header>
-        <div class="header-content">
-            <h1 class="site-title">Vegeta-Short(cut)</h1>
-            <p class="site-subtitle">Ultimate collection of quicklinks for PC building and hardware enthusiasts</p>
-        </div>
+        <h1 class="site-title">Vegeta-Short(cut)</h1>
     </header>
 
-    <div class="main-nav-container">
-        <nav class="main-nav container" aria-label="Main navigation">
-            <a href="https://ash-521.github.io/" class="nav-link"><i class="fas fa-home"></i> Home</a>
-            <a href="newbie.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Newbie</a>
-            <a href="hardware.html" class="nav-link"><i class="fas fa-microchip"></i> Hardware</a>
-            <a href="software.html" class="nav-link"><i class="fas fa-desktop"></i> Software</a>
-            <a href="troubleshooting.html" class="nav-link"><i class="fas fa-wrench"></i> Troubleshooting</a>
-            <a href="vegeta-shortcut.html" class="nav-link active" aria-current="page"><i class="fas fa-link"></i> Vegeta-Short(cut)</a>
-        </nav>
-    </div>
+    <nav class="main-nav">
+        <a href="https://ash-521.github.io/" class="nav-link"><i class="fas fa-home"></i> Home</a>
+        <a href="newbie.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Newbie</a>
+        <a href="hardware.html" class="nav-link"><i class="fas fa-microchip"></i> Hardware</a>
+        <a href="software.html" class="nav-link"><i class="fas fa-desktop"></i> Software</a>
+        <a href="troubleshooting.html" class="nav-link"><i class="fas fa-wrench"></i> Troubleshooting</a>
+        <a href="vegeta-shortcut.html" class="nav-link active"><i class="fas fa-link"></i> Vegeta-Short(cut)</a>
+    </nav>
 
     <main class="main-content">
-        <div class="search-container animate-in">
-            <input type="text" class="search-input" id="resourceSearch" placeholder="Search for tools, shops, or keywords...">
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="Search resources...">
             <i class="fas fa-search search-icon"></i>
         </div>
 
-        <section class="card animate-in delay-1" id="general-tools">
-            <div class="section-observer" id="general-tools-observer"></div>
-            <h2 class="section-title"><div class="section-icon"><i class="fas fa-tools"></i></div> General Tools</h2>
-            <p class="section-intro">Essential resources for planning and building your PC. These tools help you choose compatible components, compare prices, and get advice from experienced builders.</p>
+        <section class="card" id="general-tools">
+            <h2 class="section-title"><i class="fas fa-tools section-icon"></i> General Tools</h2>
             
-            <h3 class="subsection-title" id="build-planning"><i class="fas fa-clipboard-list"></i> Build Planning</h3>
+            <h3 class="subsection-title"><i class="fas fa-clipboard-list"></i> Build Planning</h3>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://pcpartpicker.com/" class="resource-link" target="_blank" rel="noopener">
                         PCPartPicker
-                        <span class="resource-description">Build tool & price comparison with compatibility checking</span>
+                        <span class="resource-description">Build tool & price comparison</span>
                     </a>
                 </li>
                 <li class="link-item">
                     <a href="https://pc-builder.io/" class="resource-link" target="_blank" rel="noopener">
                         PC Builder
-                        <span class="resource-description">User-friendly compatibility checker with visual interface</span>
+                        <span class="resource-description">User-friendly compatibility checker</span>
                     </a>
                 </li>
                 <li class="link-item">
                     <a href="https://pc-parts-price-tracker.en.softonic.com/chrome/extension" class="resource-link" target="_blank" rel="noopener">
                         PC Parts Price Tracker
-                        <span class="resource-description">Chrome extension for price history and alerts</span>
+                        <span class="resource-description">Chrome extension for price history</span>
                     </a>
                 </li>
             </ul>
             
-            <h3 class="subsection-title" id="psu-tier-list"><i class="fas fa-bolt"></i> PSU Tier List</h3>
+            <h3 class="subsection-title"><i class="fas fa-bolt"></i> PSU Tier List</h3>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://docs.google.com/spreadsheets/d/1akCHL7Vhzk_EhrpIGkz8zTEvYfLDcaSpZRB6Xt6JWkc/edit?gid=1973454078" class="resource-link" target="_blank" rel="noopener">
                         PSU Tier List
-                        <span class="resource-description">Community-maintained spreadsheet rating power supply quality</span>
+                        <span class="resource-description">Community-maintained spreadsheet</span>
                     </a>
                 </li>
             </ul>
             
-            <h3 class="subsection-title" id="communities"><i class="fas fa-users"></i> Communities</h3>
+            <h3 class="subsection-title"><i class="fas fa-users"></i> Communities</h3>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://www.reddit.com/r/PcBuildHelp/" class="resource-link" target="_blank" rel="noopener">
                         r/PcBuildHelp
-                        <span class="resource-description">Ask specific questions about your PC build</span>
+                        <span class="resource-description">Ask specific questions</span>
                     </a>
                 </li>
                 <li class="link-item">
                     <a href="https://www.reddit.com/r/buildapc/" class="resource-link" target="_blank" rel="noopener">
                         r/buildapc
-                        <span class="resource-description">General PC building subreddit with active community</span>
+                        <span class="resource-description">General PC building subreddit</span>
                     </a>
                 </li>
             </ul>
         </section>
 
-        <section class="card animate-in delay-2" id="monitoring-tools">
-            <div class="section-observer" id="monitoring-tools-observer"></div>
-            <h2 class="section-title"><div class="section-icon"><i class="fas fa-chart-line"></i></div> Monitoring & Benchmarking Tools</h2>
-            <p class="section-intro">Software to monitor your system's performance, temperatures, and stability. These tools help you identify issues, optimize your setup, and ensure your components are running properly.</p>
-            
+        <section class="card" id="monitoring-tools">
+            <h2 class="section-title"><i class="fas fa-chart-line section-icon"></i> Monitoring & Benchmarking Tools</h2>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://www.cpuid.com/softwares/hwmonitor.html" class="resource-link" target="_blank" rel="noopener">
@@ -983,7 +511,7 @@
                 <li class="link-item">
                     <a href="https://www.aida64.com/products/aida64-extreme" class="resource-link" target="_blank" rel="noopener">
                         AIDA64 Extreme
-                        <span class="resource-description">System diagnostics and stress testing suite</span>
+                        <span class="resource-description">System diagnostics and stress testing</span>
                     </a>
                 </li>
                 <li class="link-item">
@@ -1007,91 +535,83 @@
                 <li class="link-item">
                     <a href="https://nzxt.com/software/cam" class="resource-link" target="_blank" rel="noopener">
                         NZXT CAM
-                        <span class="resource-description">All-in-one PC monitoring software with sleek interface</span>
+                        <span class="resource-description">All-in-one PC monitoring software</span>
                     </a>
                 </li>
             </ul>
         </section>
 
-        <section class="card animate-in delay-3" id="driver-downloads">
-            <div class="section-observer" id="driver-downloads-observer"></div>
-            <h2 class="section-title"><div class="section-icon"><i class="fas fa-download"></i></div> Driver Downloads</h2>
-            <p class="section-intro">Official sources for downloading the latest drivers for your hardware. Keeping your drivers updated is essential for optimal performance and compatibility.</p>
-            
+        <section class="card" id="driver-downloads">
+            <h2 class="section-title"><i class="fas fa-download section-icon"></i> Driver Downloads</h2>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://www.nvidia.com/en-us/drivers/" class="resource-link" target="_blank" rel="noopener">
-                        NVIDIA Drivers
-                        <span class="resource-description">Official GPU drivers for GeForce graphics cards</span>
+                        NVIDIA
+                        <span class="resource-description">GPU drivers</span>
                     </a>
                 </li>
                 <li class="link-item">
                     <a href="https://www.amd.com/en/support" class="resource-link" target="_blank" rel="noopener">
-                        AMD Drivers
-                        <span class="resource-description">Official CPU & GPU drivers for Ryzen and Radeon</span>
+                        AMD
+                        <span class="resource-description">CPU & GPU drivers</span>
                     </a>
                 </li>
                 <li class="link-item">
                     <a href="https://www.intel.com/content/www/us/en/download-center/home.html" class="resource-link" target="_blank" rel="noopener">
-                        Intel Downloads
-                        <span class="resource-description">Official drivers & tools for Intel processors and components</span>
+                        Intel
+                        <span class="resource-description">Drivers & tools</span>
                     </a>
                 </li>
             </ul>
         </section>
 
-        <section class="card animate-in delay-3" id="tutorials-guides">
-            <div class="section-observer" id="tutorials-guides-observer"></div>
-            <h2 class="section-title"><div class="section-icon"><i class="fas fa-book"></i></div> Tutorials & Guides</h2>
-            <p class="section-intro">Step-by-step instructions and helpful guides for building and maintaining your PC. Perfect for beginners and experienced builders alike.</p>
+        <section class="card" id="tutorials-guides">
+            <h2 class="section-title"><i class="fas fa-book section-icon"></i> Tutorials & Guides</h2>
             
-            <h3 class="subsection-title" id="build-guides"><i class="fas fa-hammer"></i> PC Building</h3>
+            <h3 class="subsection-title"><i class="fas fa-hammer"></i> PC Building</h3>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://www.youtube.com/watch?v=Mho0M1Ns0Rw" class="resource-link" target="_blank" rel="noopener">
-                        Full PC Build Guide (2025)
-                        <span class="resource-description">Comprehensive YouTube tutorial on building a PC from scratch</span>
+                        Full Detailed PC Build Guide (2025)
+                        <span class="resource-description">YouTube</span>
                     </a>
                 </li>
                 <li class="link-item">
                     <a href="https://hyte.com/blog/pc-cable-management-guide" class="resource-link" target="_blank" rel="noopener">
-                        Cable Management Guide
-                        <span class="resource-description">Tips for clean, professional cable management in your build</span>
+                        Guide To Cable Management
+                        <span class="resource-description">For Your Gaming PC</span>
                     </a>
                 </li>
             </ul>
             
-            <h3 class="subsection-title" id="bios-updates"><i class="fas fa-microchip"></i> BIOS Updates</h3>
+            <h3 class="subsection-title"><i class="fas fa-microchip"></i> BIOS Updates</h3>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://www.ninjaone.com/blog/how-to-update-your-pcs-bios/" class="resource-link" target="_blank" rel="noopener">
                         How to Update BIOS
-                        <span class="resource-description">Safe methods to update your motherboard BIOS</span>
+                        <span class="resource-description">On Your Windows PC</span>
                     </a>
                 </li>
             </ul>
             
-            <h3 class="subsection-title" id="warranty-check"><i class="fas fa-shield-alt"></i> Warranty Check</h3>
+            <h3 class="subsection-title"><i class="fas fa-shield-alt"></i> Warranty Check</h3>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://www.ricksdailytips.com/find-warranty-status-of-computer/" class="resource-link" target="_blank" rel="noopener">
-                        Warranty Status Check
-                        <span class="resource-description">How to quickly find your computer's warranty status</span>
+                        How to quickly find your computer's warranty status
+                        <span class="resource-description">Step-by-step guide</span>
                     </a>
                 </li>
             </ul>
         </section>
 
-        <section class="card animate-in delay-4" id="tech-blogs">
-            <div class="section-observer" id="tech-blogs-observer"></div>
-            <h2 class="section-title"><div class="section-icon"><i class="fas fa-newspaper"></i></div> Tech Blogs & News</h2>
-            <p class="section-intro">Stay up-to-date with the latest hardware releases, reviews, and technology trends. These sources provide expert analysis and insights on PC components.</p>
-            
+        <section class="card" id="tech-blogs">
+            <h2 class="section-title"><i class="fas fa-newspaper section-icon"></i> Tech Blogs & News</h2>
             <ul class="link-list">
                 <li class="link-item">
                     <a href="https://www.tomshardware.com/" class="resource-link" target="_blank" rel="noopener">
                         Tom's Hardware
-                        <span class="resource-description">News, reviews and expert guides on PC hardware</span>
+                        <span class="resource-description">News, reviews and guides</span>
                     </a>
                 </li>
                 <li class="link-item">
@@ -1133,30 +653,28 @@
             </ul>
         </section>
 
-        <section class="card animate-in delay-5" id="shops-by-country">
-            <div class="section-observer" id="shops-by-country-observer"></div>
-            <h2 class="section-title"><div class="section-icon"><i class="fas fa-shopping-cart"></i></div> Shops by Country</h2>
-            <p class="section-intro">Find the best places to buy PC components in your country. This curated list includes price comparison sites, online retailers, and physical stores with competitive pricing.</p>
+        <section class="card" id="shops-by-country">
+            <h2 class="section-title"><i class="fas fa-shopping-cart section-icon"></i> Shops by Country</h2>
             
-            <div class="country-nav" id="countryNav">
-                <a href="#germany" class="country-link" data-country="germany"><span class="fi fi-de"></span> Germany</a>
-                <a href="#austria" class="country-link" data-country="austria"><span class="fi fi-at"></span> Austria</a>
-                <a href="#netherlands" class="country-link" data-country="netherlands"><span class="fi fi-nl"></span> Netherlands</a>
-                <a href="#belgium" class="country-link" data-country="belgium"><span class="fi fi-be"></span> Belgium</a>
-                <a href="#france" class="country-link" data-country="france"><span class="fi fi-fr"></span> France</a>
-                <a href="#canada" class="country-link" data-country="canada"><span class="fi fi-ca"></span> Canada</a>
-                <a href="#australia" class="country-link" data-country="australia"><span class="fi fi-au"></span> Australia</a>
-                <a href="#usa" class="country-link" data-country="usa"><span class="fi fi-us"></span> USA</a>
+            <div class="country-nav">
+                <button class="country-link" data-country="germany"><span class="fi fi-de"></span> Germany</button>
+                <button class="country-link" data-country="austria"><span class="fi fi-at"></span> Austria</button>
+                <button class="country-link" data-country="netherlands"><span class="fi fi-nl"></span> Netherlands</button>
+                <button class="country-link" data-country="belgium"><span class="fi fi-be"></span> Belgium</button>
+                <button class="country-link" data-country="france"><span class="fi fi-fr"></span> France</button>
+                <button class="country-link" data-country="canada"><span class="fi fi-ca"></span> Canada</button>
+                <button class="country-link" data-country="australia"><span class="fi fi-au"></span> Australia</button>
+                <button class="country-link" data-country="usa"><span class="fi fi-us"></span> USA</button>
+                <button class="show-all-button" id="showAllCountries"><i class="fas fa-globe"></i> Show All</button>
             </div>
 
             <div id="germany" class="country-section">
-                <div class="section-observer" id="germany-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-de"></span> Germany</h3>
                 <ul class="link-list">
                     <li class="link-item">
                         <a href="https://geizhals.de/" class="resource-link" target="_blank" rel="noopener">
                             Geizhals.de
-                            <span class="resource-description">German price comparison with comprehensive filters</span>
+                            <span class="resource-description">German price comparison</span>
                         </a>
                     </li>
                     <li class="link-item">
@@ -1168,13 +686,13 @@
                     <li class="link-item">
                         <a href="https://www.caseking.de/" class="resource-link" target="_blank" rel="noopener">
                             Caseking
-                            <span class="resource-description">Premium hardware and accessories</span>
+                            <span class="resource-description">Premium hardware</span>
                         </a>
                     </li>
                     <li class="link-item">
                         <a href="https://www.notebooksbilliger.de/" class="resource-link" target="_blank" rel="noopener">
                             Notebooksbilliger.de
-                            <span class="resource-description">Main German portal for computers</span>
+                            <span class="resource-description">Main German portal</span>
                         </a>
                     </li>
                     <li class="link-item">
@@ -1201,23 +719,10 @@
                             <span class="resource-description">Physical stores + online</span>
                         </a>
                     </li>
-                    <li class="link-item">
-                        <a href="https://www.arlt.com/" class="resource-link" target="_blank" rel="noopener">
-                            ARLT
-                            <span class="resource-description">Good selection in Frankfurt</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.csv-direct.de/" class="resource-link" target="_blank" rel="noopener">
-                            CSV-Direct
-                            <span class="resource-description">Reliable component supplier</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
 
             <div id="austria" class="country-section">
-                <div class="section-observer" id="austria-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-at"></span> Austria</h3>
                 <ul class="link-list">
                     <li class="link-item">
@@ -1256,29 +761,10 @@
                             <span class="resource-description">Store at Westbahnhof (Vienna)</span>
                         </a>
                     </li>
-                    <li class="link-item">
-                        <a href="https://www.haym.info/" class="resource-link" target="_blank" rel="noopener">
-                            Haym Infotec
-                            <span class="resource-description">Fast shipping and support</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.alza.at/" class="resource-link" target="_blank" rel="noopener">
-                            Alza
-                            <span class="resource-description">Competitive prices</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.ditech.at/" class="resource-link" target="_blank" rel="noopener">
-                            Ditech
-                            <span class="resource-description">Technical expertise</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
 
             <div id="netherlands" class="country-section">
-                <div class="section-observer" id="netherlands-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-nl"></span> Netherlands</h3>
                 <ul class="link-list">
                     <li class="link-item">
@@ -1311,23 +797,10 @@
                             <span class="resource-description">Popular for components</span>
                         </a>
                     </li>
-                    <li class="link-item">
-                        <a href="https://www.azerty.nl/" class="resource-link" target="_blank" rel="noopener">
-                            Azerty
-                            <span class="resource-description">Great customer service</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.sicomputers.nl/" class="resource-link" target="_blank" rel="noopener">
-                            SiComputers
-                            <span class="resource-description">Competitive pricing</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
             
             <div id="belgium" class="country-section">
-                <div class="section-observer" id="belgium-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-be"></span> Belgium</h3>
                 <ul class="link-list">
                     <li class="link-item">
@@ -1354,29 +827,10 @@
                             <span class="resource-description">10% discount with credit card</span>
                         </a>
                     </li>
-                    <li class="link-item">
-                        <a href="https://www.padeg.be/" class="resource-link" target="_blank" rel="noopener">
-                            Padeg.be
-                            <span class="resource-description">Multilingual, helpful staff</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.krefel.be/" class="resource-link" target="_blank" rel="noopener">
-                            Krefel.be
-                            <span class="resource-description">Top brands, helpful staff</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.vandenborre.be/" class="resource-link" target="_blank" rel="noopener">
-                            Vandenborre.be
-                            <span class="resource-description">Good service, top brands</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
             
             <div id="france" class="country-section">
-                <div class="section-observer" id="france-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-fr"></span> France</h3>
                 <ul class="link-list">
                     <li class="link-item">
@@ -1398,28 +852,15 @@
                         </a>
                     </li>
                     <li class="link-item">
-                        <a href="https://www.rue-montgallet.com/" class="resource-link" target="_blank" rel="noopener">
-                            Rue Montgallet
-                            <span class="resource-description">Street market with direct sales</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
                         <a href="https://www.ldlc.com/" class="resource-link" target="_blank" rel="noopener">
                             LDLC
                             <span class="resource-description">Large selection of components</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.amazon.fr/" class="resource-link" target="_blank" rel="noopener">
-                            Amazon France
-                            <span class="resource-description">Wide marketplace</span>
                         </a>
                     </li>
                 </ul>
             </div>
             
             <div id="canada" class="country-section">
-                <div class="section-observer" id="canada-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-ca"></span> Canada</h3>
                 <ul class="link-list">
                     <li class="link-item">
@@ -1446,23 +887,10 @@
                             <span class="resource-description">Good customer service</span>
                         </a>
                     </li>
-                    <li class="link-item">
-                        <a href="https://www.bestbuy.ca/" class="resource-link" target="_blank" rel="noopener">
-                            Best Buy Canada
-                            <span class="resource-description">Nationwide retailer</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.amazon.ca/" class="resource-link" target="_blank" rel="noopener">
-                            Amazon Canada
-                            <span class="resource-description">Wide marketplace</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
             
             <div id="australia" class="country-section">
-                <div class="section-observer" id="australia-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-au"></span> Australia</h3>
                 <ul class="link-list">
                     <li class="link-item">
@@ -1489,23 +917,10 @@
                             <span class="resource-description">Competitive pricing</span>
                         </a>
                     </li>
-                    <li class="link-item">
-                        <a href="https://www.umart.com.au/" class="resource-link" target="_blank" rel="noopener">
-                            Umart
-                            <span class="resource-description">Good for budget builds</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.computeralliance.com.au/" class="resource-link" target="_blank" rel="noopener">
-                            Computer Alliance
-                            <span class="resource-description">Queensland-based</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
             
             <div id="usa" class="country-section">
-                <div class="section-observer" id="usa-observer"></div>
                 <h3 class="subsection-title"><span class="fi fi-us"></span> United States</h3>
                 <ul class="link-list">
                     <li class="link-item">
@@ -1532,142 +947,51 @@
                             <span class="resource-description">Nationwide retailer</span>
                         </a>
                     </li>
-                    <li class="link-item">
-                        <a href="https://www.bhphotovideo.com/" class="resource-link" target="_blank" rel="noopener">
-                            B&H Photo Video
-                            <span class="resource-description">Electronics retailer</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.dell.com/en-us/" class="resource-link" target="_blank" rel="noopener">
-                            Dell US
-                            <span class="resource-description">Direct from manufacturer</span>
-                        </a>
-                    </li>
-                    <li class="link-item">
-                        <a href="https://www.hp.com/us-en/home.html" class="resource-link" target="_blank" rel="noopener">
-                            HP
-                            <span class="resource-description">Direct from manufacturer</span>
-                        </a>
-                    </li>
                 </ul>
             </div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <div class="footer-content">
-            <div class="footer-logo">Vegeta-Short(cut)</div>
-            <div class="footer-nav">
-                <a href="#">About</a>
-                <a href="#">Contact</a>
-                <a href="#">Privacy Policy</a>
-                <a href="#">Contribute</a>
-                <a href="#">Feedback</a>
-            </div>
-            <div class="footer-social">
-                <a href="#" class="social-icon tooltip" data-tooltip="GitHub"><i class="fab fa-github"></i></a>
-                <a href="#" class="social-icon tooltip" data-tooltip="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-icon tooltip" data-tooltip="Discord"><i class="fab fa-discord"></i></a>
-                <a href="#" class="social-icon tooltip" data-tooltip="Reddit"><i class="fab fa-reddit"></i></a>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 Phoenix52 Alpha. All rights reserved.</p>
-            </div>
-        </div>
+        <p>&copy; 2025 Phoenix52 Alpha</p>
     </footer>
 
-    <div class="action-buttons">
-        <button class="action-button" id="themeToggle" aria-label="Toggle dark/light mode">
-            <i class="fas fa-moon"></i>
-        </button>
-        <button class="action-button" id="backToTop" aria-label="Back to top">
-            <i class="fas fa-arrow-up"></i>
-        </button>
-    </div>
-
-    <div class="toast" id="toast"></div>
+    <button class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </button>
 
     <script>
-        // Theme toggle functionality
-        const themeToggle = document.getElementById('themeToggle');
-        const htmlEl = document.documentElement;
-        
-        function setTheme(isDark) {
-            if (isDark) {
-                htmlEl.setAttribute('data-theme', 'dark');
-                themeToggle.innerHTML = '<i class="fas fa-sun"></i>';
-                localStorage.setItem('theme', 'dark');
-                showToast('Dark mode enabled');
-            } else {
-                htmlEl.removeAttribute('data-theme');
-                themeToggle.innerHTML = '<i class="fas fa-moon"></i>';
-                localStorage.setItem('theme', 'light');
-                showToast('Light mode enabled');
-            }
-        }
-        
-        // Check for saved theme preference
-        const savedTheme = localStorage.getItem('theme');
-        if (savedTheme === 'dark') {
-            setTheme(true);
-        }
-        
-        themeToggle.addEventListener('click', () => {
-            const isDark = htmlEl.getAttribute('data-theme') === 'dark';
-            setTheme(!isDark);
-        });
-        
-        // Back to top button functionality
-        const backToTopButton = document.getElementById('backToTop');
-        
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                backToTopButton.classList.add('visible');
-            } else {
-                backToTopButton.classList.remove('visible');
-            }
-            
-            // Update progress bar
-            const scrollProgress = document.querySelector('.scroll-progress');
-            const totalHeight = document.body.scrollHeight - window.innerHeight;
-            const progress = (window.scrollY / totalHeight) * 100;
-            scrollProgress.style.width = `${progress}%`;
-        });
-        
-        backToTopButton.addEventListener('click', () => {
-            window.scrollTo({
-                top: 0,
-                behavior: 'smooth'
-            });
-        });
-        
-        // Search functionality
-        const searchInput = document.getElementById('resourceSearch');
+        // Fixed search functionality
+        const searchInput = document.getElementById('searchInput');
         searchInput.addEventListener('input', function() {
-            const searchTerm = this.value.toLowerCase();
+            const searchTerm = this.value.toLowerCase().trim();
             
-            if (searchTerm.length < 2) {
-                document.querySelectorAll('.link-item').forEach(item => {
-                    item.style.display = '';
-                });
-                return;
-            }
+            // Get all link items
+            const linkItems = document.querySelectorAll('.link-item');
             
-            document.querySelectorAll('.link-item').forEach(item => {
+            // Loop through each link item
+            linkItems.forEach(item => {
                 const linkText = item.textContent.toLowerCase();
-                if (linkText.includes(searchTerm)) {
+                
+                // Show or hide based on search term
+                if (searchTerm === '' || linkText.includes(searchTerm)) {
                     item.style.display = '';
-                    item.style.animation = 'fadeInUp 0.3s ease forwards';
                 } else {
                     item.style.display = 'none';
                 }
             });
             
-            // Check if section has visible items
+            // Check if there are visible items in each card
             document.querySelectorAll('.card').forEach(card => {
+                // Skip the country card - it has special handling
+                if (card.id === 'shops-by-country') return;
+                
                 const visibleItems = card.querySelectorAll('.link-item[style=""]').length;
-                if (visibleItems === 0) {
+                const hiddenItems = card.querySelectorAll('.link-item[style*="none"]').length;
+                const totalItems = visibleItems + hiddenItems;
+                
+                // If all items are hidden, hide the card
+                if (visibleItems === 0 && totalItems > 0) {
                     card.style.display = 'none';
                 } else {
                     card.style.display = '';
@@ -1675,106 +999,85 @@
             });
         });
         
-        // Smooth scrolling for all anchors
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
+        // Country navigation
+        const countryLinks = document.querySelectorAll('.country-link');
+        const countrySections = document.querySelectorAll('.country-section');
+        const showAllButton = document.getElementById('showAllCountries');
+        
+        // Function to show all countries
+        function showAllCountries() {
+            // Show all country sections
+            countrySections.forEach(section => {
+                section.classList.remove('hidden');
+            });
+            
+            // Remove active class from all country links
+            countryLinks.forEach(link => {
+                link.classList.remove('active');
+            });
+        }
+        
+        // Initially show all countries
+        showAllCountries();
+        
+        // When a country is clicked
+        countryLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                const selectedCountry = this.getAttribute('data-country');
                 
-                const targetId = this.getAttribute('href').substring(1);
-                const targetElement = document.getElementById(targetId);
-                
-                if (targetElement) {
-                    // Add active class to country links
-                    if (this.classList.contains('country-link')) {
-                        document.querySelectorAll('.country-link').forEach(link => {
-                            link.classList.remove('active');
-                        });
-                        this.classList.add('active');
-                    }
-                    
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80,
-                        behavior: 'smooth'
-                    });
+                // Toggle active state for this link
+                if (this.classList.contains('active')) {
+                    // If already active, show all countries
+                    showAllCountries();
+                    return;
                 }
+                
+                // Remove active class from all links
+                countryLinks.forEach(link => {
+                    link.classList.remove('active');
+                });
+                
+                // Add active class to clicked link
+                this.classList.add('active');
+                
+                // Hide all country sections
+                countrySections.forEach(section => {
+                    if (section.id === selectedCountry) {
+                        section.classList.remove('hidden');
+                        
+                        // Scroll to the selected country
+                        setTimeout(() => {
+                            section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                        }, 100);
+                    } else {
+                        section.classList.add('hidden');
+                    }
+                });
             });
         });
         
-        // Intersection Observer for section visibility
-        const observers = {};
-        const sections = [
-            'general-tools',
-            'monitoring-tools',
-            'driver-downloads',
-            'tutorials-guides',
-            'tech-blogs',
-            'shops-by-country',
-            'germany',
-            'austria',
-            'netherlands',
-            'belgium',
-            'france',
-            'canada',
-            'australia',
-            'usa'
-        ];
+        // Show all countries button
+        showAllButton.addEventListener('click', function() {
+            showAllCountries();
+        });
         
-        sections.forEach(section => {
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        if (section.startsWith('general') || section.startsWith('monitoring') || 
-                            section.startsWith('driver') || section.startsWith('tutorials') || 
-                            section.startsWith('tech') || section.startsWith('shops')) {
-                            // Main sections - nothing specific to do
-                        } else {
-                            // Country sections - update active link
-                            document.querySelectorAll('.country-link').forEach(link => {
-                                link.classList.remove('active');
-                            });
-                            const activeLink = document.querySelector(`.country-link[data-country="${section}"]`);
-                            if (activeLink) {
-                                activeLink.classList.add('active');
-                            }
-                        }
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            const observerElement = document.getElementById(`${section}-observer`);
-            if (observerElement) {
-                observer.observe(observerElement);
-                observers[section] = observer;
+        // Back to top button
+        const backToTopButton = document.getElementById('backToTop');
+        
+        // Show back to top button when scrolled down
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                backToTopButton.classList.add('visible');
+            } else {
+                backToTopButton.classList.remove('visible');
             }
         });
         
-        // Toast notification
-        function showToast(message) {
-            const toast = document.getElementById('toast');
-            toast.textContent = message;
-            toast.classList.add('visible');
-            
-            setTimeout(() => {
-                toast.classList.remove('visible');
-            }, 3000);
-        }
-
-        // Animation for elements entering the viewport
-        document.addEventListener('DOMContentLoaded', function() {
-            const animElements = document.querySelectorAll('.animate-in');
-            
-            const animObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.style.animationPlayState = 'running';
-                        animObserver.unobserve(entry.target);
-                    }
-                });
-            }, { threshold: 0.1 });
-            
-            animElements.forEach(el => {
-                el.style.animationPlayState = 'paused';
-                animObserver.observe(el);
+        // Scroll to top when button is clicked
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
             });
         });
     </script>
