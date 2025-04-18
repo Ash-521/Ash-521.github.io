@@ -1,209 +1,538 @@
-<section class="card" id="shops-by-country">
-    <h2 class="section-title">Shops by Country</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vegeta-Short(cut) - Quick access to useful links for PC building and hardware">
+    <title>Vegeta-Short(cut) | Quicklinks for PC Building</title>
+    <link href="https://fonts.cdnfonts.com/css/samsung-sans-4" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #820022;
+            --primary-dark: #5e0015;
+            --primary-darker: #2b000d;
+            --primary-light: #a30033;
+            --background-light: #ffffff;
+            --text-color: #222;
+            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: 'Samsung Sans', sans-serif;
+            background: linear-gradient(to right, #ece9e6, var(--background-light));
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border-width: 0;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #460018, var(--primary-color));
+            color: white;
+            padding: 2rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-title {
+            margin: 0;
+            font-size: 3rem;
+            font-weight: 700;
+            font-family: 'Samsung Sans', sans-serif;
+        }
+        
+        .main-nav {
+            background: var(--primary-darker);
+            padding: 1rem;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav-link {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link.active {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+        }
+        
+        .nav-link:hover, 
+        .nav-link:focus {
+            background-color: var(--primary-dark);
+            transform: scale(1.05);
+            outline: none;
+        }
+        
+        .main-content {
+            padding: 3rem 1.5rem;
+            max-width: 1200px;
+            margin: auto;
+        }
+        
+        .card {
+            background: white;
+            margin: 2rem 0;
+            padding: 2rem 2.5rem;
+            border-radius: 14px;
+            box-shadow: var(--box-shadow);
+            transition: transform 0.3s ease;
+        }
+        
+        .card:hover {
+            transform: translateY(-3px);
+        }
+        
+        .section-title {
+            font-size: 2rem;
+            color: #66001a;
+            margin-bottom: 1.2rem;
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            font-family: 'Samsung Sans', sans-serif;
+            font-weight: 700;
+        }
+        
+        .subsection-title {
+            margin-top: 2rem;
+            color: var(--primary-color);
+            font-size: 1.3rem;
+            font-family: 'Samsung Sans', sans-serif;
+            font-weight: 600;
+        }
+        
+        .link-list {
+            list-style: none;
+        }
+        
+        .link-item {
+            margin: 0.75rem 0;
+        }
+        
+        .resource-link {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.6rem 1.4rem;
+            border-radius: 6px;
+            display: inline-block;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
+        
+        .resource-link:hover,
+        .resource-link:focus {
+            background-color: var(--primary-light);
+            transform: translateY(-2px);
+            outline: none;
+        }
+        
+        .site-footer {
+            background: #180009;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+        
+        @media (max-width: 768px) {
+            .site-title {
+                font-size: 2.2rem;
+            }
+            
+            .card {
+                padding: 1.5rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 class="site-title">Vegeta-Short(cut)</h1>
+    </header>
 
-    <h3 class="subsection-title" id="germany">Germany 🇩🇪</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://geizhals.de/" class="resource-link" target="_blank" rel="noopener">Geizhals.de – German price comparison</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.mindfactory.de/" class="resource-link" target="_blank" rel="noopener">Mindfactory – Competitive prices (mixed reviews)</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.caseking.de/" class="resource-link" target="_blank" rel="noopener">Caseking – Premium hardware</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.notebooksbilliger.de/" class="resource-link" target="_blank" rel="noopener">Notebooksbilliger.de – Main German portal</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.alternate.de/" class="resource-link" target="_blank" rel="noopener">Alternate.de – With international access</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.computeruniverse.net/" class="resource-link" target="_blank" rel="noopener">Computeruniverse – Wide selection of components</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.jacob.de/" class="resource-link" target="_blank" rel="noopener">JACOB Elektronik – Competitive pricing</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.kmcomputer.de/" class="resource-link" target="_blank" rel="noopener">K&M Computer – Physical stores + online</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.arlt.com/" class="resource-link" target="_blank" rel="noopener">ARLT – Good selection in Frankfurt</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.csv-direct.de/" class="resource-link" target="_blank" rel="noopener">CSV-Direct – Reliable component supplier</a>
-        </li>
-    </ul>
+    <nav class="main-nav" aria-label="Main navigation">
+        <a href="https://ash-521.github.io/" class="nav-link">Home</a>
+        <a href="newbie.html" class="nav-link">Newbie</a>
+        <a href="hardware.html" class="nav-link">Hardware</a>
+        <a href="software.html" class="nav-link">Software</a>
+        <a href="troubleshooting.html" class="nav-link">Troubleshooting</a>
+        <a href="vegeta-shortcut.html" class="nav-link active" aria-current="page">Vegeta-Short(cut)</a>
+    </nav>
 
-    <h3 class="subsection-title" id="austria">Austria 🇦🇹</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://geizhals.at/" class="resource-link" target="_blank" rel="noopener">Geizhals.at – Austrian comparison site</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.e-tec.at/" class="resource-link" target="_blank" rel="noopener">E-Tec – Austrian tech shop</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.alternate.at/" class="resource-link" target="_blank" rel="noopener">Alternate.at – Austrian version</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.notebooksbilliger.at/" class="resource-link" target="_blank" rel="noopener">Notebooksbilliger.at – Regional store</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.mylemon.at/" class="resource-link" target="_blank" rel="noopener">MyLemon – Good prices and selection</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.cyberport.at/" class="resource-link" target="_blank" rel="noopener">Cyberport – Store at Westbahnhof (Vienna)</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.haym.info/" class="resource-link" target="_blank" rel="noopener">Haym Infotec – Fast shipping and support</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.alza.at/" class="resource-link" target="_blank" rel="noopener">Alza – Competitive prices</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.ditech.at/" class="resource-link" target="_blank" rel="noopener">Ditech – Technical expertise</a>
-        </li>
-    </ul>
+    <main class="main-content">
+        <section class="card" id="general-tools">
+            <h2 class="section-title">General Tools</h2>
+            
+            <h3 class="subsection-title" id="build-planning">Build Planning</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://pcpartpicker.com/" class="resource-link" target="_blank" rel="noopener">PCPartPicker – Build tool & price comparison</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://pc-builder.io/" class="resource-link" target="_blank" rel="noopener">PC Builder – User-friendly compatibility checker</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://pc-parts-price-tracker.en.softonic.com/chrome/extension" class="resource-link" target="_blank" rel="noopener">PC Parts Price Tracker – Chrome extension for price history</a>
+                </li>
+            </ul>
+            
+            <h3 class="subsection-title" id="psu-tier-list">PSU Tier List</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://docs.google.com/spreadsheets/d/1akCHL7Vhzk_EhrpIGkz8zTEvYfLDcaSpZRB6Xt6JWkc/edit?gid=1973454078" class="resource-link" target="_blank" rel="noopener">PSU Tier List – Community-maintained spreadsheet</a>
+                </li>
+            </ul>
+            
+            <h3 class="subsection-title" id="communities">Communities</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.reddit.com/r/PcBuildHelp/" class="resource-link" target="_blank" rel="noopener">r/PcBuildHelp – Ask specific questions</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.reddit.com/r/buildapc/" class="resource-link" target="_blank" rel="noopener">r/buildapc – General PC building subreddit</a>
+                </li>
+            </ul>
+        </section>
 
-    <h3 class="subsection-title" id="netherlands">Netherlands 🇳🇱</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://www.alternate.nl/" class="resource-link" target="_blank" rel="noopener">Alternate.nl – Dutch version</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.coolblue.nl/" class="resource-link" target="_blank" rel="noopener">Coolblue – Large electronics store</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.bol.com/" class="resource-link" target="_blank" rel="noopener">Bol.com – Marketplace (PC parts included)</a>
-        </li>
-        <li class="link-item">
-            <a href="https://tweakers.net/pricewatch/" class="resource-link" target="_blank" rel="noopener">Tweakers.net – Price comparison + reviews</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.megekko.nl/" class="resource-link" target="_blank" rel="noopener">Megekko – Popular for components</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.azerty.nl/" class="resource-link" target="_blank" rel="noopener">Azerty – Great customer service</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.sicomputers.nl/" class="resource-link" target="_blank" rel="noopener">SiComputers – Competitive pricing</a>
-        </li>
-    </ul>
+        <section class="card" id="monitoring-tools">
+            <h2 class="section-title">Monitoring & Benchmarking Tools</h2>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.cpuid.com/softwares/hwmonitor.html" class="resource-link" target="_blank" rel="noopener">HWMonitor – Hardware monitoring (temperature, voltage, fan speed)</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.hwinfo.com/" class="resource-link" target="_blank" rel="noopener">HWiNFO – Comprehensive hardware analysis and monitoring</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.aida64.com/products/aida64-extreme" class="resource-link" target="_blank" rel="noopener">AIDA64 Extreme – System diagnostics and stress testing</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://geeks3d.com/furmark/" class="resource-link" target="_blank" rel="noopener">FurMark – GPU stress test and stability checker</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.techpowerup.com/intelburntest/" class="resource-link" target="_blank" rel="noopener">IntelBurnTest – CPU stress testing tool</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.uml.edu/research/pcm/pcmark-10/" class="resource-link" target="_blank" rel="noopener">PCMark 10 – Comprehensive system benchmarking</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://nzxt.com/software/cam" class="resource-link" target="_blank" rel="noopener">NZXT CAM – All-in-one PC monitoring software</a>
+                </li>
+            </ul>
+        </section>
 
-    <h3 class="subsection-title" id="belgium">Belgium 🇧🇪</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://www.alternate.be/" class="resource-link" target="_blank" rel="noopener">Alternate.be – Belgian version</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.computerstore.be/" class="resource-link" target="_blank" rel="noopener">Computerstore.be – Free shipping, next-day delivery</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.mediamarkt.be/" class="resource-link" target="_blank" rel="noopener">Mediamarkt.be – Low prices, large selection</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.fnac.be/" class="resource-link" target="_blank" rel="noopener">Fnac.be – 10% discount with credit card</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.padeg.be/" class="resource-link" target="_blank" rel="noopener">Padeg.be – Multilingual, helpful staff</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.krefel.be/" class="resource-link" target="_blank" rel="noopener">Krefel.be – Top brands, helpful staff</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.vandenborre.be/" class="resource-link" target="_blank" rel="noopener">Vandenborre.be – Good service, top brands</a>
-        </li>
-    </ul>
+        <section class="card" id="driver-downloads">
+            <h2 class="section-title">Driver Downloads</h2>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.nvidia.com/en-us/drivers/" class="resource-link" target="_blank" rel="noopener">NVIDIA – GPU drivers</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.amd.com/en/support" class="resource-link" target="_blank" rel="noopener">AMD – CPU & GPU drivers</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.intel.com/content/www/us/en/download-center/home.html" class="resource-link" target="_blank" rel="noopener">Intel – Drivers & tools</a>
+                </li>
+            </ul>
+        </section>
 
-    <h3 class="subsection-title" id="france">France 🇫🇷</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://www.topachat.com/" class="resource-link" target="_blank" rel="noopener">Topachat – Component matcher, good prices</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.materiel.net/" class="resource-link" target="_blank" rel="noopener">Materiel.net – Reliable, premium service</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.grosbill.com/" class="resource-link" target="_blank" rel="noopener">GrosBill – Stores around Paris</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.rue-montgallet.com/" class="resource-link" target="_blank" rel="noopener">Rue Montgallet – Street market with direct sales</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.ldlc.com/" class="resource-link" target="_blank" rel="noopener">LDLC – Large selection of components</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.amazon.fr/" class="resource-link" target="_blank" rel="noopener">Amazon France – Wide marketplace</a>
-        </li>
-    </ul>
+        <section class="card" id="tutorials-guides">
+            <h2 class="section-title">Tutorials & Guides</h2>
+            
+            <h3 class="subsection-title" id="build-guides">PC Building</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.youtube.com/watch?v=Mho0M1Ns0Rw" class="resource-link" target="_blank" rel="noopener">Full Detailed PC Build Guide (2025) – YouTube</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://hyte.com/blog/pc-cable-management-guide" class="resource-link" target="_blank" rel="noopener">Guide To Cable Management For Your Gaming PC</a>
+                </li>
+            </ul>
+            
+            <h3 class="subsection-title" id="bios-updates">BIOS Updates</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.ninjaone.com/blog/how-to-update-your-pcs-bios/" class="resource-link" target="_blank" rel="noopener">How to Update BIOS on Your Windows PC</a>
+                </li>
+            </ul>
+            
+            <h3 class="subsection-title" id="warranty-check">Warranty Check</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.ricksdailytips.com/find-warranty-status-of-computer/" class="resource-link" target="_blank" rel="noopener">How to quickly find your computer's warranty status</a>
+                </li>
+            </ul>
+        </section>
 
-    <h3 class="subsection-title" id="canada">Canada 🇨🇦</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://www.newegg.ca/" class="resource-link" target="_blank" rel="noopener">Newegg Canada – Large component selection</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.canadacomputers.com/" class="resource-link" target="_blank" rel="noopener">Canada Computers – Physical stores + online</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.memoryexpress.com/" class="resource-link" target="_blank" rel="noopener">Memory Express – Price matching</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.mikescomputershop.com/" class="resource-link" target="_blank" rel="noopener">Mike's Computer Shop – Good customer service</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.bestbuy.ca/" class="resource-link" target="_blank" rel="noopener">Best Buy Canada – Nationwide retailer</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.amazon.ca/" class="resource-link" target="_blank" rel="noopener">Amazon Canada – Wide marketplace</a>
-        </li>
-    </ul>
+        <section class="card" id="tech-blogs">
+            <h2 class="section-title">Tech Blogs & News</h2>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.tomshardware.com/" class="resource-link" target="_blank" rel="noopener">Tom's Hardware – News, reviews and guides</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://hothardware.com/" class="resource-link" target="_blank" rel="noopener">Hot Hardware – Technology news and expert reviews</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.tweaktown.com/reviews/index.html" class="resource-link" target="_blank" rel="noopener">TweakTown – Hardware reviews and technology news</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.wepc.com/news/" class="resource-link" target="_blank" rel="noopener">WePC News – PC gaming industry and hardware news</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://pcmonitors.info/" class="resource-link" target="_blank" rel="noopener">PC Monitors – Monitor reviews and recommendations</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://hexus.net/" class="resource-link" target="_blank" rel="noopener">HEXUS – PC systems and components news</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://techgage.com/" class="resource-link" target="_blank" rel="noopener">Techgage – PC hardware and technology news</a>
+                </li>
+            </ul>
+        </section>
 
-    <h3 class="subsection-title" id="australia">Australia 🇦🇺</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://www.pccasegear.com/" class="resource-link" target="_blank" rel="noopener">PC Case Gear – Specialized in gaming hardware</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.mwave.com.au/" class="resource-link" target="_blank" rel="noopener">Mwave – Wide selection of components</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.scorptec.com.au/" class="resource-link" target="_blank" rel="noopener">Scorptec – Physical stores + online</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.centrecom.com.au/" class="resource-link" target="_blank" rel="noopener">Centre Com – Competitive pricing</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.umart.com.au/" class="resource-link" target="_blank" rel="noopener">Umart – Good for budget builds</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.computeralliance.com.au/" class="resource-link" target="_blank" rel="noopener">Computer Alliance – Queensland-based</a>
-        </li>
-    </ul>
+        <section class="card" id="shops-by-country">
+            <h2 class="section-title">Shops by Country</h2>
 
-    <h3 class="subsection-title" id="usa">United States 🇺🇸</h3>
-    <ul class="link-list">
-        <li class="link-item">
-            <a href="https://www.newegg.com/" class="resource-link" target="_blank" rel="noopener">Newegg – US-based electronics</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.amazon.com/" class="resource-link" target="_blank" rel="noopener">Amazon US – Large online marketplace</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.microcenter.com/" class="resource-link" target="_blank" rel="noopener">Micro Center – Physical stores with competitive pricing</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.bestbuy.com/" class="resource-link" target="_blank" rel="noopener">Best Buy – Nationwide retailer</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.bhphotovideo.com/" class="resource-link" target="_blank" rel="noopener">B&H Photo Video – Electronics retailer</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.dell.com/en-us/" class="resource-link" target="_blank" rel="noopener">Dell US – Direct from manufacturer</a>
-        </li>
-        <li class="link-item">
-            <a href="https://www.hp.com/us-en/home.html" class="resource-link" target="_blank" rel="noopener">HP – Direct from manufacturer</a>
-        </li>
-    </ul>
-</section>
+            <h3 class="subsection-title" id="germany">Germany 🇩🇪</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://geizhals.de/" class="resource-link" target="_blank" rel="noopener">Geizhals.de – German price comparison</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.mindfactory.de/" class="resource-link" target="_blank" rel="noopener">Mindfactory – Competitive prices (mixed reviews)</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.caseking.de/" class="resource-link" target="_blank" rel="noopener">Caseking – Premium hardware</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.notebooksbilliger.de/" class="resource-link" target="_blank" rel="noopener">Notebooksbilliger.de – Main German portal</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.alternate.de/" class="resource-link" target="_blank" rel="noopener">Alternate.de – With international access</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.computeruniverse.net/" class="resource-link" target="_blank" rel="noopener">Computeruniverse – Wide selection of components</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.jacob.de/" class="resource-link" target="_blank" rel="noopener">JACOB Elektronik – Competitive pricing</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.kmcomputer.de/" class="resource-link" target="_blank" rel="noopener">K&M Computer – Physical stores + online</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.arlt.com/" class="resource-link" target="_blank" rel="noopener">ARLT – Good selection in Frankfurt</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.csv-direct.de/" class="resource-link" target="_blank" rel="noopener">CSV-Direct – Reliable component supplier</a>
+                </li>
+            </ul>
+
+            <h3 class="subsection-title" id="austria">Austria 🇦🇹</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://geizhals.at/" class="resource-link" target="_blank" rel="noopener">Geizhals.at – Austrian comparison site</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.e-tec.at/" class="resource-link" target="_blank" rel="noopener">E-Tec – Austrian tech shop</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.alternate.at/" class="resource-link" target="_blank" rel="noopener">Alternate.at – Austrian version</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.notebooksbilliger.at/" class="resource-link" target="_blank" rel="noopener">Notebooksbilliger.at – Regional store</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.mylemon.at/" class="resource-link" target="_blank" rel="noopener">MyLemon – Good prices and selection</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.cyberport.at/" class="resource-link" target="_blank" rel="noopener">Cyberport – Store at Westbahnhof (Vienna)</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.haym.info/" class="resource-link" target="_blank" rel="noopener">Haym Infotec – Fast shipping and support</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.alza.at/" class="resource-link" target="_blank" rel="noopener">Alza – Competitive prices</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.ditech.at/" class="resource-link" target="_blank" rel="noopener">Ditech – Technical expertise</a>
+                </li>
+            </ul>
+
+            <h3 class="subsection-title" id="netherlands">Netherlands 🇳🇱</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.alternate.nl/" class="resource-link" target="_blank" rel="noopener">Alternate.nl – Dutch version</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.coolblue.nl/" class="resource-link" target="_blank" rel="noopener">Coolblue – Large electronics store</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.bol.com/" class="resource-link" target="_blank" rel="noopener">Bol.com – Marketplace (PC parts included)</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://tweakers.net/pricewatch/" class="resource-link" target="_blank" rel="noopener">Tweakers.net – Price comparison + reviews</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.megekko.nl/" class="resource-link" target="_blank" rel="noopener">Megekko – Popular for components</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.azerty.nl/" class="resource-link" target="_blank" rel="noopener">Azerty – Great customer service</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.sicomputers.nl/" class="resource-link" target="_blank" rel="noopener">SiComputers – Competitive pricing</a>
+                </li>
+            </ul>
+
+            <h3 class="subsection-title" id="belgium">Belgium 🇧🇪</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.alternate.be/" class="resource-link" target="_blank" rel="noopener">Alternate.be – Belgian version</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.computerstore.be/" class="resource-link" target="_blank" rel="noopener">Computerstore.be – Free shipping, next-day delivery</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.mediamarkt.be/" class="resource-link" target="_blank" rel="noopener">Mediamarkt.be – Low prices, large selection</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.fnac.be/" class="resource-link" target="_blank" rel="noopener">Fnac.be – 10% discount with credit card</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.padeg.be/" class="resource-link" target="_blank" rel="noopener">Padeg.be – Multilingual, helpful staff</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.krefel.be/" class="resource-link" target="_blank" rel="noopener">Krefel.be – Top brands, helpful staff</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.vandenborre.be/" class="resource-link" target="_blank" rel="noopener">Vandenborre.be – Good service, top brands</a>
+                </li>
+            </ul>
+
+            <h3 class="subsection-title" id="france">France 🇫🇷</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.topachat.com/" class="resource-link" target="_blank" rel="noopener">Topachat – Component matcher, good prices</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.materiel.net/" class="resource-link" target="_blank" rel="noopener">Materiel.net – Reliable, premium service</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.grosbill.com/" class="resource-link" target="_blank" rel="noopener">GrosBill – Stores around Paris</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.rue-montgallet.com/" class="resource-link" target="_blank" rel="noopener">Rue Montgallet – Street market with direct sales</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.ldlc.com/" class="resource-link" target="_blank" rel="noopener">LDLC – Large selection of components</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.amazon.fr/" class="resource-link" target="_blank" rel="noopener">Amazon France – Wide marketplace</a>
+                </li>
+            </ul>
+
+            <h3 class="subsection-title" id="canada">Canada 🇨🇦</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.newegg.ca/" class="resource-link" target="_blank" rel="noopener">Newegg Canada – Large component selection</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.canadacomputers.com/" class="resource-link" target="_blank" rel="noopener">Canada Computers – Physical stores + online</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.memoryexpress.com/" class="resource-link" target="_blank" rel="noopener">Memory Express – Price matching</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.mikescomputershop.com/" class="resource-link" target="_blank" rel="noopener">Mike's Computer Shop – Good customer service</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.bestbuy.ca/" class="resource-link" target="_blank" rel="noopener">Best Buy Canada – Nationwide retailer</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.amazon.ca/" class="resource-link" target="_blank" rel="noopener">Amazon Canada – Wide marketplace</a>
+                </li>
+            </ul>
+
+            <h3 class="subsection-title" id="australia">Australia 🇦🇺</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.pccasegear.com/" class="resource-link" target="_blank" rel="noopener">PC Case Gear – Specialized in gaming hardware</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.mwave.com.au/" class="resource-link" target="_blank" rel="noopener">Mwave – Wide selection of components</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.scorptec.com.au/" class="resource-link" target="_blank" rel="noopener">Scorptec – Physical stores + online</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.centrecom.com.au/" class="resource-link" target="_blank" rel="noopener">Centre Com – Competitive pricing</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.umart.com.au/" class="resource-link" target="_blank" rel="noopener">Umart – Good for budget builds</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.computeralliance.com.au/" class="resource-link" target="_blank" rel="noopener">Computer Alliance – Queensland-based</a>
+                </li>
+            </ul>
+
+            <h3 class="subsection-title" id="usa">United States 🇺🇸</h3>
+            <ul class="link-list">
+                <li class="link-item">
+                    <a href="https://www.newegg.com/" class="resource-link" target="_blank" rel="noopener">Newegg – US-based electronics</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.amazon.com/" class="resource-link" target="_blank" rel="noopener">Amazon US – Large online marketplace</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.microcenter.com/" class="resource-link" target="_blank" rel="noopener">Micro Center – Physical stores with competitive pricing</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.bestbuy.com/" class="resource-link" target="_blank" rel="noopener">Best Buy – Nationwide retailer</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.bhphotovideo.com/" class="resource-link" target="_blank" rel="noopener">B&H Photo Video – Electronics retailer</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.dell.com/en-us/" class="resource-link" target="_blank" rel="noopener">Dell US – Direct from manufacturer</a>
+                </li>
+                <li class="link-item">
+                    <a href="https://www.hp.com/us-en/home.html" class="resource-link" target="_blank" rel="noopener">HP – Direct from manufacturer</a>
+                </li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2025 Phoenix52 Alpha</p>
+    </footer>
+</body>
+</html>
