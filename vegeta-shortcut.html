@@ -1,1666 +1,275 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Vegeta-Short(cut) - Schnellzugriff auf nützliche Links für PC-Bau und Hardware">
-    <title>Vegeta-Short(cut) | Quicklinks für PC-Bau</title>
-    
-    <!-- Stylesheets und Schriftarten -->
-    <link rel="preconnect" href="https://fonts.cdnfonts.com">
-    <link href="https://fonts.cdnfonts.com/css/samsung-sans-4" rel="stylesheet">
-    <link rel="preconnect" href="https://cdn.jsdelivr.net">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Progressive Web App (PWA) Support -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="theme-color" content="#820022">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
-    
-    <style>
-        /* Theme-System mit erweiterten CSS-Variablen */
-        :root {
-            /* Farbpalette */
-            --primary-color: #820022;
-            --primary-dark: #5e0015;
-            --primary-darker: #2b000d;
-            --primary-light: #a30033;
-            --accent-color: #004a82;
-            --accent-light: #0074cc;
-            
-            /* UI-Farben */
-            --background-main: #f8f8f8;
-            --background-light: #ffffff;
-            --background-dark: #eaeaea;
-            --text-color: #222222;
-            --text-light: #666666;
-            --border-color: #dddddd;
-            
-            /* Effekte */
-            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
-            --transition-fast: 0.2s ease;
-            --transition-medium: 0.3s ease;
-            --card-border-radius: 14px;
-            --button-border-radius: 8px;
-            
-            /* Abstands-System */
-            --space-xs: 0.25rem;
-            --space-sm: 0.5rem;
-            --space-md: 1rem;
-            --space-lg: 1.5rem;
-            --space-xl: 2rem;
-            --space-xxl: 3rem;
-        }
-        
-        /* Dark Theme Modus */
-        [data-theme="dark"] {
-            --primary-color: #a30033;
-            --primary-dark: #820022;
-            --primary-darker: #5e0015;
-            --primary-light: #cc0044;
-            --accent-color: #0074cc;
-            --accent-light: #33a1ff;
-            
-            --background-main: #121212;
-            --background-light: #1e1e1e;
-            --background-dark: #2d2d2d;
-            --text-color: #f0f0f0;
-            --text-light: #b0b0b0;
-            --border-color: #444444;
-            
-            --box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-        }
-        
-        /* Basis-Styling und Reset */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        
-        html {
-            scroll-behavior: smooth;
-            scroll-padding-top: 100px;
-            height: 100%;
-        }
-        
-        body {
-            font-family: 'Samsung Sans', system-ui, -apple-system, sans-serif;
-            background: var(--background-main);
-            color: var(--text-color);
-            line-height: 1.6;
-            min-height: 100%;
-            display: flex;
-            flex-direction: column;
-            transition: background-color var(--transition-medium), color var(--transition-medium);
-        }
-        
-        /* Header mit Animation */
-        header {
-            background: linear-gradient(135deg, #460018, var(--primary-color));
-            color: white;
-            padding: var(--space-xl) var(--space-md);
-            text-align: center;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-background {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            overflow: hidden;
-            z-index: 0;
-        }
-        
-        .header-background::before,
-        .header-background::after {
-            content: '';
-            position: absolute;
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 50%;
-        }
-        
-        .header-background::before {
-            width: 300px;
-            height: 300px;
-            top: -100px;
-            right: -50px;
-            animation: float 20s infinite alternate ease-in-out;
-        }
-        
-        .header-background::after {
-            width: 200px;
-            height: 200px;
-            bottom: -70px;
-            left: 10%;
-            animation: float 15s infinite alternate-reverse ease-in-out;
-        }
-        
-        @keyframes float {
-            0% { transform: translate(0, 0) rotate(0deg); }
-            50% { transform: translate(20px, 5px) rotate(5deg); }
-            100% { transform: translate(0, 0) rotate(0deg); }
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 1;
-        }
-        
-        .site-title {
-            margin: 0;
-            font-size: 3rem;
-            font-weight: 700;
-            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-            background: linear-gradient(45deg, #ffffff, #f0f0f0);
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        
-        .site-subtitle {
-            font-size: 1.1rem;
-            opacity: 0.9;
-            margin-top: var(--space-sm);
-        }
-        
-        /* Theme Toggle Button */
-        .theme-toggle {
-            position: absolute;
-            top: var(--space-md);
-            right: var(--space-md);
-            background: rgba(0, 0, 0, 0.2);
-            border: none;
-            color: white;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: 20px;
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-            cursor: pointer;
-            transition: background var(--transition-fast);
-            z-index: 10;
-        }
-        
-        .theme-toggle:hover {
-            background: rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Navigation */
-        .main-nav {
-            background: var(--primary-darker);
-            padding: var(--space-md);
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-        
-        .nav-link {
-            color: #fff;
-            text-decoration: none;
-            font-weight: 600;
-            padding: var(--space-sm) var(--space-md);
-            border-radius: var(--button-border-radius);
-            transition: all var(--transition-fast);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-        
-        .nav-link.active {
-            background-color: var(--primary-dark);
-            transform: scale(1.05);
-            position: relative;
-        }
-        
-        .nav-link.active::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 5px;
-            height: 5px;
-            background-color: white;
-            border-radius: 50%;
-        }
-        
-        .nav-link:hover, 
-        .nav-link:focus {
-            background-color: var(--primary-dark);
-            transform: scale(1.05);
-            outline: none;
-        }
-        
-        /* Main content */
-        .main-content {
-            padding: var(--space-xl) var(--space-lg);
-            max-width: 1200px;
-            margin: auto;
-            flex: 1 0 auto;
-            width: 100%;
-        }
-        
-        /* Erweiterte Suchfunktion */
-        .search-container {
-            margin-bottom: var(--space-xl);
-            position: relative;
-            background: var(--background-light);
-            border-radius: var(--card-border-radius);
-            padding: var(--space-md);
-            box-shadow: var(--box-shadow);
-            transition: all var(--transition-medium);
-        }
-        
-        .search-container:focus-within {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .search-input-wrapper {
-            position: relative;
-            display: flex;
-            align-items: center;
-        }
-        
-        .search-input {
-            width: 100%;
-            padding: 0.8rem 2.5rem 0.8rem 1rem;
-            border: 2px solid var(--border-color);
-            border-radius: var(--button-border-radius);
-            font-size: 1rem;
-            transition: all var(--transition-medium);
-            font-family: inherit;
-            background: var(--background-light);
-            color: var(--text-color);
-        }
-        
-        .search-input:focus {
-            outline: none;
-            border-color: var(--primary-color);
-            box-shadow: 0 0 0 3px rgba(130, 0, 34, 0.1);
-        }
-        
-        .search-icon {
-            position: absolute;
-            right: 1rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: var(--text-light);
-            pointer-events: none;
-        }
-        
-        /* Clear search button */
-        .clear-search {
-            position: absolute;
-            right: 3rem;
-            top: 50%;
-            transform: translateY(-50%);
-            background: none;
-            border: none;
-            color: var(--text-light);
-            cursor: pointer;
-            padding: 0.25rem;
-            opacity: 0;
-            transition: opacity 0.2s ease;
-        }
-        
-        .clear-search.visible {
-            opacity: 1;
-        }
-        
-        .clear-search:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Erweiterte Suchoptionen */
-        .search-advanced {
-            margin-top: var(--space-md);
-            overflow: hidden;
-            max-height: 0;
-            transition: max-height 0.3s ease-out;
-        }
-        
-        .search-advanced.expanded {
-            max-height: 200px;
-        }
-        
-        .search-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-md);
-            margin-bottom: var(--space-md);
-            align-items: center;
-        }
-        
-        .search-filter-group {
-            display: flex;
-            align-items: center;
-            gap: var(--space-sm);
-        }
-        
-        .search-filter-label {
-            font-weight: bold;
-            color: var(--text-color);
-            font-size: 0.9rem;
-        }
-        
-        .search-filter-select {
-            padding: var(--space-xs) var(--space-sm);
-            border-radius: var(--button-border-radius);
-            border: 1px solid var(--border-color);
-            background: var(--background-light);
-            color: var(--text-color);
-        }
-        
-        .search-toggle {
-            margin-left: auto;
-            background: none;
-            border: none;
-            color: var(--primary-color);
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-            cursor: pointer;
-            padding: var(--space-xs) var(--space-sm);
-            transition: all var(--transition-fast);
-        }
-        
-        .search-toggle:hover {
-            color: var(--primary-light);
-        }
-        
-        .search-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: var(--space-sm);
-        }
-        
-        .search-tag {
-            background: var(--background-dark);
-            border: none;
-            border-radius: 20px;
-            padding: var(--space-xs) var(--space-md);
-            font-size: 0.85rem;
-            cursor: pointer;
-            transition: all var(--transition-fast);
-            color: var(--text-color);
-        }
-        
-        .search-tag:hover {
-            background: var(--primary-color);
-            color: white;
-        }
-        
-        /* Results counters */
-        .search-results {
-            margin: -1rem 0 1rem;
-            font-size: 0.9rem;
-            color: var(--text-light);
-            display: none;
-        }
-        
-        .search-results.visible {
-            display: block;
-        }
-        
-        /* Favoriten-Container */
-        .favorites-container {
-            display: none;
-            background: var(--background-light);
-            border-radius: var(--card-border-radius);
-            padding: var(--space-lg);
-            margin-bottom: var(--space-xl);
-            box-shadow: var(--box-shadow);
-        }
-        
-        .favorites-container.has-favorites {
-            display: block;
-        }
-        
-        .favorites-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: var(--space-md);
-        }
-        
-        .clear-favorites {
-            background: none;
-            border: none;
-            color: var(--text-light);
-            display: flex;
-            align-items: center;
-            gap: var(--space-xs);
-            cursor: pointer;
-            transition: color var(--transition-fast);
-            padding: var(--space-xs) var(--space-sm);
-        }
-        
-        .clear-favorites:hover {
-            color: var(--primary-color);
-        }
-        
-        /* Cards */
-        .card {
-            background: var(--background-light);
-            margin: 2rem 0;
-            padding: 2rem 2.5rem;
-            border-radius: var(--card-border-radius);
-            box-shadow: var(--box-shadow);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-        }
-        
-        .card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 4px;
-            height: 100%;
-            background: var(--primary-color);
-        }
-        
-        /* Section titles */
-        .section-title {
-            font-size: 2rem;
-            color: var(--primary-color);
-            margin-bottom: 1.2rem;
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            font-weight: 700;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .section-icon {
-            font-size: 1.5rem;
-        }
-        
-        /* Subsection titles */
-        .subsection-title {
-            margin-top: 2rem;
-            color: var(--primary-color);
-            font-size: 1.3rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            padding-bottom: 0.3rem;
-            border-bottom: 1px solid rgba(130, 0, 34, 0.1);
-        }
-        
-        /* Flags */
-        .fi {
-            margin-right: 10px;
-            border-radius: 2px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
-        }
-        
-        /* Links */
-        .link-list {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
-            gap: 15px;
-            margin-top: 1rem;
-        }
-        
-        .link-item {
-            margin: 0.5rem 0;
-            position: relative;
-            transition: all var(--transition-fast);
-            display: flex;
-            align-items: stretch;
-        }
-        
-        .resource-link {
-            background-color: var(--primary-color);
-            color: white;
-            padding: 0.8rem 1.2rem;
-            border-radius: 6px;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all var(--transition-medium);
-            position: relative;
-            overflow: hidden;
-            z-index: 1;
-        }
-        
-        .resource-title {
-            display: block;
-            margin-bottom: 5px;
-        }
-        
-        .resource-link::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(255, 255, 255, 0.1);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform var(--transition-medium);
-            z-index: -1;
-        }
-        
-        .resource-link:hover::before,
-        .resource-link:focus::before {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-        
-        .resource-link:hover,
-        .resource-link:focus {
-            background-color: var(--primary-light);
-            transform: translateY(-3px);
-            outline: none;
-            box-shadow: 0 4px 12px rgba(130, 0, 34, 0.2);
-        }
-        
-        .resource-description {
-            display: block;
-            font-size: 0.85rem;
-            opacity: 0.9;
-            font-weight: normal;
-            margin-top: 5px;
-        }
-        
-        /* Favorite-Button */
-        .favorite-btn {
-            background: var(--primary-dark);
-            border: none;
-            color: white;
-            width: 40px;
-            border-radius: 0 6px 6px 0;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background var(--transition-fast);
-            margin-left: 1px;
-        }
-        
-        .favorite-btn:hover {
-            background: var(--primary-light);
-        }
-        
-        .favorite-btn.active {
-            background: var(--accent-color);
-        }
-        
-        .favorite-btn.active i {
-            color: gold;
-        }
-        
-        /* Country navigation */
-        .country-nav {
-            background: var(--background-dark);
-            padding: 1rem;
-            border-radius: 10px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            justify-content: center;
-            position: sticky;
-            top: 70px; /* Adjust to match the height of your main nav */
-            z-index: 990;
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-        }
-        
-        .country-link {
-            background: var(--primary-color);
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all var(--transition-medium);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            border: none;
-            font-family: inherit;
-            font-weight: 500;
-        }
-        
-        .country-link:hover {
-            background: var(--primary-light);
-            transform: translateY(-2px);
-        }
-        
-        .country-link.active {
-            background: var(--accent-color); /* Secondary color for active state */
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-        }
-        
-        .show-all-button {
-            background: #333;
-            color: white;
-            border: none;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: all var(--transition-medium);
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-family: inherit;
-            font-weight: 500;
-        }
-        
-        .show-all-button:hover {
-            background: #555;
-            transform: translateY(-2px);
-        }
-        
-        /* Country sections */
-        .country-section {
-            transition: opacity 0.3s ease, height 0.3s ease, transform 0.3s ease;
-            overflow: hidden;
-            transform-origin: top;
-            margin-top: 1rem;
-        }
-        
-        .country-section.hidden {
-            opacity: 0;
-            height: 0;
-            padding: 0;
-            margin: 0;
-            pointer-events: none;
-            transform: scaleY(0);
-        }
-        
-        /* Back to top button */
-        .back-to-top {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            background: var(--primary-color);
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-decoration: none;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            transition: all var(--transition-medium);
-            opacity: 0;
-            visibility: hidden;
-            border: none;
-            cursor: pointer;
-            z-index: 1000;
-        }
-        
-        .back-to-top.visible {
-            opacity: 1;
-            visibility: visible;
-        }
-        
-        .back-to-top:hover {
-            background: var(--primary-light);
-            transform: translateY(-3px);
-        }
-        
-        /* Toast notification */
-        .toast {
-            position: fixed;
-            bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%) translateY(100px);
-            background: rgba(0, 0, 0, 0.8);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 4px;
-            font-size: 14px;
-            z-index: 2000;
-            transition: transform 0.3s ease;
-            max-width: 80%;
-            text-align: center;
-        }
-        
-        .toast.visible {
-            transform: translateX(-50%) translateY(0);
-        }
-        
-        /* Footer */
-        .site-footer {
-            background: var(--primary-darker);
-            color: white;
-            text-align: center;
-            padding: 2rem;
-            margin-top: 4rem;
-            flex-shrink: 0;
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        
-        .footer-links {
-            margin-top: 1rem;
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-        
-        .footer-link {
-            color: rgba(255, 255, 255, 0.8);
-            text-decoration: none;
-            transition: color var(--transition-fast);
-        }
-        
-        .footer-link:hover {
-            color: white;
-            text-decoration: underline;
-        }
-        
-        /* Loading spinner */
-        .spinner {
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(130, 0, 34, 0.1);
-            border-radius: 50%;
-            border-top-color: var(--primary-color);
-            animation: spin 1s ease-in-out infinite;
-            margin: 2rem auto;
-            display: none;
-        }
-        
-        @keyframes spin {
-            to { transform: rotate(360deg); }
-        }
-        
-        /* No results message */
-        .no-results {
-            text-align: center;
-            padding: 2rem;
-            color: var(--text-light);
-            font-style: italic;
-            display: none;
-        }
-        
-        /* Responsive styles */
-        @media (max-width: 1200px) {
-            .link-list {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            }
-        }
-        
-        @media (max-width: 992px) {
-            .site-title {
-                font-size: 2.5rem;
-            }
-            
-            .card {
-                padding: 1.8rem;
-            }
-            
-            .section-title {
-                font-size: 1.8rem;
-            }
-        }
-        
-        @media (max-width: 768px) {
-            .site-title {
-                font-size: 2.2rem;
-            }
-            
-            .card {
-                padding: 1.5rem;
-            }
-            
-            .section-title {
-                font-size: 1.6rem;
-            }
-            
-            .link-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .main-nav {
-                overflow-x: auto;
-                justify-content: flex-start;
-                padding: 0.5rem 0.5rem;
-                gap: 0.5rem;
-            }
-            
-            .nav-link {
-                padding: 0.4rem 0.7rem;
-                white-space: nowrap;
-                font-size: 0.9rem;
-            }
-            
-            .country-nav {
-                top: 0;
-                position: relative;
-                padding: 0.8rem;
-                margin-top: 1rem;
-            }
-            
-            .country-link, .show-all-button {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-            
-            .theme-toggle {
-                top: var(--space-xs);
-                right: var(--space-xs);
-                padding: var(--space-xs) var(--space-sm);
-                font-size: 0.8rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .site-title {
-                font-size: 1.8rem;
-            }
-            
-            .card {
-                padding: 1.2rem;
-                margin: 1.5rem 0;
-            }
-            
-            .section-title {
-                font-size: 1.4rem;
-            }
-            
-            .subsection-title {
-                font-size: 1.2rem;
-            }
-            
-            .search-input {
-                padding: 0.6rem 2.5rem 0.6rem 1rem;
-                font-size: 0.9rem;
-            }
-            
-            .main-nav {
-                padding: 0.4rem;
-            }
-            
-            .nav-link {
-                padding: 0.3rem 0.6rem;
-                font-size: 0.8rem;
-            }
-            
-            .resource-link {
-                padding: 0.7rem 1rem;
-            }
-            
-            .search-options {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Vegeta-Short(cut) | Quicklinks for PC Building</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO Meta Tags -->
+  <meta name="description" content="Vegeta-Short(cut) - Die ultimative Sammlung von nützlichen Links und Tools für PC-Bau, Hardware und Software. Finde die besten Shops, Guides und Tools für dein nächstes PC-Projekt.">
+  <meta name="keywords" content="PC Building, Hardware, PC Parts, PSU Tier List, PC Shops, Computer Components, PC Building Guide">
+  <meta name="author" content="Phoenix52 Alpha">
+
+  <!-- Open Graph for Social Media -->
+  <meta property="og:title" content="Vegeta-Short(cut) | Quicklinks für PC-Bau">
+  <meta property="og:description" content="Die ultimative Sammlung von nützlichen Links und Tools für PC-Bau, Hardware und Software.">
+  <meta property="og:image" content="https://deine-domain.de/images/vegeta-shortcut-preview.jpg">
+  <meta property="og:url" content="https://deine-domain.de">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Vegeta-Short(cut) | Quicklinks für PC-Bau">
+  <meta name="twitter:description" content="Die ultimative Sammlung von nützlichen Links und Tools für PC-Bau, Hardware und Software.">
+  <meta name="twitter:image" content="https://deine-domain.de/images/vegeta-shortcut-preview.jpg">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.cdnfonts.com/css/samsung-sans-4" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/lipis/flag-icons@6.11.0/css/flag-icons.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    body { margin: 0; font-family: 'Samsung Sans', sans-serif; background: #f8f8f8; color: #222; }
+    header { background: linear-gradient(135deg, #460018, #820022); color: white; padding: 2rem 1rem; text-align: center; }
+    .site-title { margin: 0; font-size: 2.5rem; font-weight: 700; }
+    .section-title { font-size: 1.7rem; color: #820022; margin-bottom: 1rem; font-weight: 700; }
+    .subsection-title { font-size: 1.15rem; color: #5e0015; margin: 1.5rem 0 0.5rem 0; font-weight: 600; display: flex; align-items: center; gap: 8px; }
+    .card { background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; padding: 2rem 1.5rem; }
+    .link-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 12px; }
+    .link-item { display: flex; align-items: center; gap: 6px; }
+    .resource-link { flex: 1; background: #820022; color: #fff; text-decoration: none; border-radius: 6px; padding: 0.7rem 1.1rem; font-weight: 600; display: flex; flex-direction: column; transition: background .2s, box-shadow .2s; }
+    .resource-link:hover { background: #a30033; }
+    .resource-link.visited { opacity: 0.6; text-decoration: underline; }
+    .resource-description { font-size: 0.93rem; font-weight: 400; opacity: 0.85; }
+    .fi { margin-right: 8px; }
+    /* Timeline */
+    .build-timeline { background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; padding: 2rem 1.5rem; }
+    .timeline-container { position: relative; margin-top: 1.5rem; }
+    .timeline-line { position: absolute; left: 18px; top: 0; bottom: 0; width: 4px; background: #820022; border-radius: 2px; }
+    .timeline-entry { position: relative; margin-left: 48px; margin-bottom: 2rem; }
+    .timeline-date { font-weight: bold; color: #820022; margin-bottom: 0.2rem; }
+    .timeline-content { background: #f8f8f8; border-radius: 8px; padding: 1rem; }
+    .add-timeline-entry-btn { background: #820022; color: #fff; border: none; border-radius: 20px; padding: 0.5rem 1.2rem; font-size: 1rem; cursor: pointer; margin-top: 1rem; }
+    /* Price Alert */
+    .price-alert-container { background: #fff; border-radius: 12px; box-shadow: 0 6px 20px rgba(0,0,0,0.06); margin-bottom: 2rem; padding: 2rem 1.5rem; }
+    .alert-form-group { margin-bottom: 1rem; }
+    .alert-form-group label { display: block; margin-bottom: 0.2rem; font-weight: 500; }
+    .alert-form-group input, .alert-form-group select { width: 100%; padding: 0.5rem; border-radius: 6px; border: 1px solid #ddd; }
+    .alert-submit-btn { background: #820022; color: #fff; border: none; border-radius: 20px; padding: 0.5rem 1.2rem; font-size: 1rem; cursor: pointer; }
+    /* Preview button */
+    .preview-btn { background: none; border: none; color: #820022; font-size: 1.2rem; cursor: pointer; margin-left: 0.5rem; }
+    .link-preview { display: none; background: #f8f8f8; border-radius: 8px; padding: 1rem; margin-top: 0.5rem; }
+    @media (max-width: 800px) { .card, .build-timeline, .price-alert-container { padding: 1.2rem 0.6rem; } }
+    @media (max-width: 500px) { .site-title { font-size: 1.3rem; } .section-title { font-size: 1.1rem; } .subsection-title { font-size: 1rem; } }
+  </style>
 </head>
 <body>
-    <header>
-        <div class="header-background"></div>
-        <div class="header-content">
-            <h1 class="site-title">Vegeta-Short(cut)</h1>
-            <p class="site-subtitle">Schnellzugriff auf nützliche Links für PC-Bau und Hardware</p>
+  <header>
+    <h1 class="site-title">Vegeta-Short(cut)</h1>
+    <p>Quick access to the best PC building resources, guides, and shops worldwide</p>
+  </header>
+  <main>
+    <!-- Timeline -->
+    <div class="build-timeline">
+      <h3>PC Build Timeline</h3>
+      <p>Track your PC build progress over time</p>
+      <div class="timeline-container">
+        <div class="timeline-line"></div>
+        <div class="timeline-entry">
+          <div class="timeline-date">Apr 13, 2025</div>
+          <div class="timeline-content">
+            <h4>Build planning started</h4>
+            <p>First components selected</p>
+            <ul class="timeline-components">
+              <li>CPU: AMD Ryzen 7 8700X</li>
+              <li>GPU: NVIDIA RTX 5070</li>
+            </ul>
+          </div>
         </div>
-        <button class="theme-toggle" id="themeToggle">
-            <i class="fas fa-moon"></i>
-            <span>Dark Mode</span>
+        <div class="timeline-entry">
+          <div class="timeline-date">Apr 15, 2025</div>
+          <div class="timeline-content">
+            <h4>Motherboard selected</h4>
+            <p>After compatibility check</p>
+            <ul class="timeline-components">
+              <li>Motherboard: ASUS ROG Strix X870-E Gaming</li>
+            </ul>
+          </div>
+        </div>
+        <button class="add-timeline-entry-btn"><i class="fas fa-plus-circle"></i> Add new entry</button>
+      </div>
+    </div>
+    <!-- Price Alert -->
+    <div class="price-alert-container">
+      <h3>Set up Price Alert</h3>
+      <p>Get notified when components drop below your desired price</p>
+      <form id="price-alert-form">
+        <div class="alert-form-group">
+          <label for="component-type">Component type:</label>
+          <select id="component-type" required>
+            <option value="">Please select</option>
+            <option value="cpu">CPU</option>
+            <option value="gpu">GPU</option>
+            <option value="ram">RAM</option>
+          </select>
+        </div>
+        <div class="alert-form-group">
+          <label for="component-model">Model:</label>
+          <input type="text" id="component-model" placeholder="e.g. RTX 4070" required>
+        </div>
+        <div class="alert-form-group">
+          <label for="target-price">Target price (€):</label>
+          <input type="number" id="target-price" min="1" step="0.01" required>
+        </div>
+        <div class="alert-form-group">
+          <label for="alert-email">Your email:</label>
+          <input type="email" id="alert-email" required>
+        </div>
+        <button type="submit" class="alert-submit-btn">
+          <i class="fas fa-bell"></i> Set price alert
         </button>
-    </header>
-
-    <nav class="main-nav">
-        <a href="index.html" class="nav-link"><i class="fas fa-home"></i> Home</a>
-        <a href="newbie.html" class="nav-link"><i class="fas fa-graduation-cap"></i> Newbie</a>
-        <a href="hardware.html" class="nav-link"><i class="fas fa-microchip"></i> Hardware</a>
-        <a href="software.html" class="nav-link"><i class="fas fa-desktop"></i> Software</a>
-        <a href="troubleshooting.html" class="nav-link"><i class="fas fa-wrench"></i> Troubleshooting</a>
-        <a href="vegeta-shortcut.html" class="nav-link active"><i class="fas fa-link"></i> Vegeta-Short(cut)</a>
-    </nav>
-
-    <main class="main-content">
-        <!-- Erweiterte Suchfunktion -->
-        <div class="search-container" id="searchContainer">
-            <div class="search-input-wrapper">
-                <input type="text" class="search-input" id="searchInput" placeholder="Ressourcen durchsuchen (z.B. PSU, AMD, Preisvergleich)...">
-                <button class="clear-search" id="clearSearch" aria-label="Suche löschen">
-                    <i class="fas fa-times"></i>
-                </button>
-                <i class="fas fa-search search-icon"></i>
-            </div>
-            
-            <div class="search-advanced" id="searchAdvanced">
-                <div class="search-options">
-                    <div class="search-filter-group">
-                        <span class="search-filter-label">Kategorie:</span>
-                        <select class="search-filter-select" id="categoryFilter">
-                            <option value="all">Alle</option>
-                            <option value="general-tools">Allgemeine Tools</option>
-                            <option value="monitoring-tools">Monitoring & Benchmarking</option>
-                            <option value="driver-downloads">Treiber</option>
-                            <option value="tutorials-guides">Tutorials</option>
-                            <option value="tech-blogs">Tech Blogs</option>
-                            <option value="shops-by-country">Shops nach Land</option>
-                        </select>
-                    </div>
-                    
-                    <div class="search-filter-group">
-                        <span class="search-filter-label">Land:</span>
-                        <select class="search-filter-select" id="countryFilter">
-                            <option value="all">Alle</option>
-                            <option value="germany">Deutschland</option>
-                            <option value="austria">Österreich</option>
-                            <option value="netherlands">Niederlande</option>
-                            <option value="belgium">Belgien</option>
-                            <option value="france">Frankreich</option>
-                            <option value="canada">Kanada</option>
-                            <option value="australia">Australien</option>
-                            <option value="usa">USA</option>
-                        </select>
-                    </div>
-                    
-                    <button class="search-toggle" id="searchToggle">
-                        <span>Erweiterte Suche</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </button>
-                </div>
-                
-                <div class="search-tags">
-                    <button class="search-tag" data-search="PSU">Netzteil</button>
-                    <button class="search-tag" data-search="AMD">AMD</button>
-                    <button class="search-tag" data-search="Intel">Intel</button>
-                    <button class="search-tag" data-search="NVIDIA">NVIDIA</button>
-                    <button class="search-tag" data-search="CPU">CPU</button>
-                    <button class="search-tag" data-search="GPU">GPU</button>
-                    <button class="search-tag" data-search="RAM">RAM</button>
-                    <button class="search-tag" data-search="SSD">SSD</button>
-                    <button class="search-tag" data-search="Preisvergleich">Preisvergleich</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="search-results" id="searchResults"></div>
-        <div class="spinner" id="searchSpinner"></div>
-        <div class="no-results" id="noResults">Keine Ergebnisse gefunden. Versuche andere Suchbegriffe.</div>
-
-        <!-- Favoriten-Sektion -->
-        <div class="favorites-container" id="favoritesContainer">
-            <div class="favorites-header">
-                <h2 class="section-title"><i class="fas fa-star section-icon"></i> Meine Favoriten</h2>
-                <button class="clear-favorites" id="clearFavorites">
-                    <i class="fas fa-trash-alt"></i>
-                    <span>Alle löschen</span>
-                </button>
-            </div>
-            <ul class="link-list" id="favoritesList">
-                <!-- Favoriten werden hier per JavaScript eingefügt -->
-            </ul>
-        </div>
-
-        <section class="card" id="general-tools">
-            <h2 class="section-title"><i class="fas fa-tools section-icon"></i> Allgemeine Tools</h2>
-            
-            <h3 class="subsection-title"><i class="fas fa-clipboard-list"></i> Build Planung</h3>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://pcpartpicker.com/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">PCPartPicker</span>
-                        <span class="resource-description">Build-Tool & Preisvergleich</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://pcpartpicker.com/" data-title="PCPartPicker" data-desc="Build-Tool & Preisvergleich" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://pcbuilder.net/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">PC Builder</span>
-                        <span class="resource-description">Benutzerfreundlicher Kompatibilitätsprüfer</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://pcbuilder.net/" data-title="PC Builder" data-desc="Benutzerfreundlicher Kompatibilitätsprüfer" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://honey.com/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">Honey</span>
-                        <span class="resource-description">Browser-Erweiterung für PC-Teil-Preisverfolgung</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://honey.com/" data-title="Honey" data-desc="Browser-Erweiterung für PC-Teil-Preisverfolgung" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-            </ul>
-            
-            <h3 class="subsection-title"><i class="fas fa-bolt"></i> PSU Tier Liste</h3>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://cultists.network/140/psu-tier-list/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">PSU Tier List</span>
-                        <span class="resource-description">Umfassende Netzteil-Bewertungsliste</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://cultists.network/140/psu-tier-list/" data-title="PSU Tier List" data-desc="Umfassende Netzteil-Bewertungsliste" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-            </ul>
-            
-            <h3 class="subsection-title"><i class="fas fa-users"></i> Communities</h3>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://www.reddit.com/r/PcBuildHelp/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">r/PcBuildHelp</span>
-                        <span class="resource-description">Stelle spezifische Fragen</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.reddit.com/r/PcBuildHelp/" data-title="r/PcBuildHelp" data-desc="Stelle spezifische Fragen" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.reddit.com/r/buildapc/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">r/buildapc</span>
-                        <span class="resource-description">Allgemeines PC-Building Subreddit</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.reddit.com/r/buildapc/" data-title="r/buildapc" data-desc="Allgemeines PC-Building Subreddit" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-            </ul>
-        </section>
-
-        <section class="card" id="monitoring-tools">
-            <h2 class="section-title"><i class="fas fa-chart-line section-icon"></i> Monitoring & Benchmarking Tools</h2>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://www.cpuid.com/softwares/hwmonitor.html" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">HWMonitor</span>
-                        <span class="resource-description">Hardware-Überwachung (Temperatur, Spannung, Lüftergeschwindigkeit)</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.cpuid.com/softwares/hwmonitor.html" data-title="HWMonitor" data-desc="Hardware-Überwachung (Temperatur, Spannung, Lüftergeschwindigkeit)" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.hwinfo.com/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">HWiNFO</span>
-                        <span class="resource-description">Umfassende Hardware-Analyse und Überwachung</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.hwinfo.com/" data-title="HWiNFO" data-desc="Umfassende Hardware-Analyse und Überwachung" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.aida64.com/products/aida64-extreme" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">AIDA64 Extreme</span>
-                        <span class="resource-description">Systemdiagnosen und Belastungstests</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.aida64.com/products/aida64-extreme" data-title="AIDA64 Extreme" data-desc="Systemdiagnosen und Belastungstests" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://geeks3d.com/furmark/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">FurMark</span>
-                        <span class="resource-description">GPU-Stresstest und Stabilitätsprüfung</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://geeks3d.com/furmark/" data-title="FurMark" data-desc="GPU-Stresstest und Stabilitätsprüfung" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.techpowerup.com/download/intelburntest/" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">IntelBurnTest</span>
-                        <span class="resource-description">CPU-Stresstest-Tool</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.techpowerup.com/download/intelburntest/" data-title="IntelBurnTest" data-desc="CPU-Stresstest-Tool" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://benchmarks.ul.com/pcmark10" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">PCMark 10</span>
-                        <span class="resource-description">Umfassende System-Benchmark-Tests</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://benchmarks.ul.com/pcmark10" data-title="PCMark 10" data-desc="Umfassende System-Benchmark-Tests" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://nzxt.com/software/cam" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">NZXT CAM</span>
-                        <span class="resource-description">All-in-One PC-Überwachungssoftware</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://nzxt.com/software/cam" data-title="NZXT CAM" data-desc="All-in-One PC-Überwachungssoftware" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Weitere Sektionen folgen dem gleichen Muster... -->
-
-        <!-- Treiber-Downloads Sektion -->
-        <section class="card" id="driver-downloads">
-            <h2 class="section-title"><i class="fas fa-download section-icon"></i> Treiber-Downloads</h2>
-            <ul class="link-list">
-                <li class="link-item">
-                    <a href="https://www.nvidia.com/download/index.aspx" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">NVIDIA</span>
-                        <span class="resource-description">GPU-Treiber</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.nvidia.com/download/index.aspx" data-title="NVIDIA" data-desc="GPU-Treiber" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.amd.com/en/support" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">AMD</span>
-                        <span class="resource-description">CPU & GPU Treiber</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.amd.com/en/support" data-title="AMD" data-desc="CPU & GPU Treiber" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-                <li class="link-item">
-                    <a href="https://www.intel.com/content/www/us/en/download/driver.html" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">Intel</span>
-                        <span class="resource-description">Treiber & Tools</span>
-                    </a>
-                    <button class="favorite-btn" data-url="https://www.intel.com/content/www/us/en/download/driver.html" data-title="Intel" data-desc="Treiber & Tools" aria-label="Als Favorit speichern">
-                        <i class="far fa-star"></i>
-                    </button>
-                </li>
-            </ul>
-        </section>
-
-        <!-- Shops nach Land Sektion -->
-        <section class="card" id="shops-by-country">
-            <h2 class="section-title"><i class="fas fa-shopping-cart section-icon"></i> Shops nach Land</h2>
-            
-            <div class="country-nav">
-                <button class="country-link" data-country="germany"><span class="fi fi-de"></span> Deutschland</button>
-                <button class="country-link" data-country="austria"><span class="fi fi-at"></span> Österreich</button>
-                <button class="country-link" data-country="netherlands"><span class="fi fi-nl"></span> Niederlande</button>
-                <button class="country-link" data-country="belgium"><span class="fi fi-be"></span> Belgien</button>
-                <button class="country-link" data-country="france"><span class="fi fi-fr"></span> Frankreich</button>
-                <button class="country-link" data-country="canada"><span class="fi fi-ca"></span> Kanada</button>
-                <button class="country-link" data-country="australia"><span class="fi fi-au"></span> Australien</button>
-                <button class="country-link" data-country="usa"><span class="fi fi-us"></span> USA</button>
-                <button class="show-all-button" id="showAllCountries"><i class="fas fa-globe"></i> Alle anzeigen</button>
-            </div>
-
-            <div id="germany" class="country-section">
-                <h3 class="subsection-title"><span class="fi fi-de"></span> Deutschland</h3>
-                <ul class="link-list">
-                    <li class="link-item">
-                        <a href="https://geizhals.de/" class="resource-link" target="_blank" rel="noopener">
-                            <span class="resource-title">Geizhals.de</span>
-                            <span class="resource-description">Deutscher Preisvergleich</span>
-                        </a>
-                        <button class="favorite-btn" data-url="https://geizhals.de/" data-title="Geizhals.de" data-desc="Deutscher Preisvergleich" aria-label="Als Favorit speichern">
-                            <i class="far fa-star"></i>
-                        </button>
-                    </li>
-                    <!-- Weitere Deutschland-Shops folgen dem gleichen Muster -->
-                </ul>
-            </div>
-
-            <!-- Weitere Länder-Sektionen folgen dem gleichen Muster -->
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="footer-content">
-            <p>&copy; 2025 Phoenix52 Alpha</p>
-            <div class="footer-links">
-                <a href="#" class="footer-link">Über uns</a>
-                <a href="#" class="footer-link">Kontakt</a>
-                <a href="#" class="footer-link">Datenschutz</a>
-                <a href="#" class="footer-link">Nutzungsbedingungen</a>
-            </div>
-        </div>
-    </footer>
-
-    <button class="back-to-top" id="backToTop" aria-label="Zurück nach oben">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-    
-    <div class="toast" id="toast"></div>
-
-    <script>
-        // DOM-Elemente
-        const searchInput = document.getElementById('searchInput');
-        const clearSearchBtn = document.getElementById('clearSearch');
-        const searchResults = document.getElementById('searchResults');
-        const searchSpinner = document.getElementById('searchSpinner');
-        const noResults = document.getElementById('noResults');
-        const countryLinks = document.querySelectorAll('.country-link');
-        const countrySections = document.querySelectorAll('.country-section');
-        const showAllButton = document.getElementById('showAllCountries');
-        const backToTopButton = document.getElementById('backToTop');
-        const toast = document.getElementById('toast');
-        const searchContainer = document.getElementById('searchContainer');
-        const searchToggle = document.getElementById('searchToggle');
-        const searchAdvanced = document.getElementById('searchAdvanced');
-        const categoryFilter = document.getElementById('categoryFilter');
-        const countryFilter = document.getElementById('countryFilter');
-        const searchTags = document.querySelectorAll('.search-tag');
-        const themeToggle = document.getElementById('themeToggle');
-        const favoritesContainer = document.getElementById('favoritesContainer');
-        const favoritesList = document.getElementById('favoritesList');
-        const clearFavoritesBtn = document.getElementById('clearFavorites');
-        const favoriteButtons = document.querySelectorAll('.favorite-btn');
-
-        // Zustandsverwaltung
-        let currentTheme = localStorage.getItem('theme') || 'light';
-        let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-        // Initialisiere die Webseite
-        function initializePage() {
-            // Gespeichertes Theme anwenden
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            updateThemeToggleUI();
-            
-            // Favoriten rendern
-            renderFavorites();
-            
-            // Event-Listener anhängen
-            attachEventListeners();
-            
-            // Links validieren
-            validateLinks();
-            
-            // ServiceWorker für PWA registrieren
-            if ('serviceWorker' in navigator) {
-                navigator.serviceWorker.register('/sw.js').catch(error => {
-                    console.error('ServiceWorker registration failed:', error);
-                });
-            }
+      </form>
+    </div>
+    <!-- Example interactive link with preview -->
+    <div class="link-item-container">
+      <div class="link-item">
+        <a href="https://www.techpowerup.com/" class="resource-link" target="_blank" rel="noopener" data-link-id="techpowerup">
+          <span class="resource-title">TechPowerUp</span>
+          <span class="resource-description">Hardware reviews and tech news</span>
+        </a>
+        <button class="preview-btn" data-url="https://www.techpowerup.com/"><i class="fas fa-eye"></i></button>
+      </div>
+      <div class="link-preview" id="preview-techpowerup"></div>
+    </div>
+    <!-- Shops by Country: ALLES aus deiner Datei [1] -->
+    <section class="card" id="shops-by-country">
+      <h2 class="section-title">Shops by Country</h2>
+      <!-- Hier ist der komplette Inhalt aus deiner Datei eingefügt -->
+      <!-- BEGIN paste-1.txt -->
+      <h3 class="subsection-title" id="germany"><span class="fi fi-de"></span>Germany</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://geizhals.de/" class="resource-link" target="_blank" rel="noopener">Geizhals.de – German price comparison</a></li>
+        <li class="link-item"><a href="https://www.mindfactory.de/" class="resource-link" target="_blank" rel="noopener">Mindfactory – Competitive prices (mixed reviews)</a></li>
+        <li class="link-item"><a href="https://www.caseking.de/" class="resource-link" target="_blank" rel="noopener">Caseking – Premium hardware</a></li>
+        <li class="link-item"><a href="https://www.notebooksbilliger.de/" class="resource-link" target="_blank" rel="noopener">Notebooksbilliger.de – Main German portal</a></li>
+        <li class="link-item"><a href="https://www.alternate.de/" class="resource-link" target="_blank" rel="noopener">Alternate.de – With international access</a></li>
+        <li class="link-item"><a href="https://www.computeruniverse.net/" class="resource-link" target="_blank" rel="noopener">Computeruniverse – Wide selection of components</a></li>
+        <li class="link-item"><a href="https://www.jacob.de/" class="resource-link" target="_blank" rel="noopener">JACOB Elektronik – Competitive pricing</a></li>
+        <li class="link-item"><a href="https://www.kmcomputer.de/" class="resource-link" target="_blank" rel="noopener">K&M Computer – Physical stores + online</a></li>
+        <li class="link-item"><a href="https://www.arlt.com/" class="resource-link" target="_blank" rel="noopener">ARLT – Good selection in Frankfurt</a></li>
+        <li class="link-item"><a href="https://www.csv-direct.de/" class="resource-link" target="_blank" rel="noopener">CSV-Direct – Reliable component supplier</a></li>
+      </ul>
+      <h3 class="subsection-title" id="austria"><span class="fi fi-at"></span>Austria</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://geizhals.at/" class="resource-link" target="_blank" rel="noopener">Geizhals.at – Austrian comparison site</a></li>
+        <li class="link-item"><a href="https://www.e-tec.at/" class="resource-link" target="_blank" rel="noopener">E-Tec – Austrian tech shop</a></li>
+        <li class="link-item"><a href="https://www.alternate.at/" class="resource-link" target="_blank" rel="noopener">Alternate.at – Austrian version</a></li>
+        <li class="link-item"><a href="https://www.notebooksbilliger.at/" class="resource-link" target="_blank" rel="noopener">Notebooksbilliger.at – Regional store</a></li>
+        <li class="link-item"><a href="https://www.mylemon.at/" class="resource-link" target="_blank" rel="noopener">MyLemon – Good prices and selection</a></li>
+        <li class="link-item"><a href="https://www.cyberport.at/" class="resource-link" target="_blank" rel="noopener">Cyberport – Store at Westbahnhof (Vienna)</a></li>
+        <li class="link-item"><a href="https://www.haym.info/" class="resource-link" target="_blank" rel="noopener">Haym Infotec – Fast shipping and support</a></li>
+        <li class="link-item"><a href="https://www.alza.at/" class="resource-link" target="_blank" rel="noopener">Alza – Competitive prices</a></li>
+        <li class="link-item"><a href="https://www.ditech.at/" class="resource-link" target="_blank" rel="noopener">Ditech – Technical expertise</a></li>
+      </ul>
+      <h3 class="subsection-title" id="netherlands"><span class="fi fi-nl"></span>Netherlands</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://www.alternate.nl/" class="resource-link" target="_blank" rel="noopener">Alternate.nl – Dutch version</a></li>
+        <li class="link-item"><a href="https://www.coolblue.nl/" class="resource-link" target="_blank" rel="noopener">Coolblue – Large electronics store</a></li>
+        <li class="link-item"><a href="https://www.bol.com/" class="resource-link" target="_blank" rel="noopener">Bol.com – Marketplace (PC parts included)</a></li>
+        <li class="link-item"><a href="https://tweakers.net/pricewatch/" class="resource-link" target="_blank" rel="noopener">Tweakers.net – Price comparison + reviews</a></li>
+        <li class="link-item"><a href="https://www.megekko.nl/" class="resource-link" target="_blank" rel="noopener">Megekko – Popular for components</a></li>
+        <li class="link-item"><a href="https://www.azerty.nl/" class="resource-link" target="_blank" rel="noopener">Azerty – Great customer service</a></li>
+        <li class="link-item"><a href="https://www.sicomputers.nl/" class="resource-link" target="_blank" rel="noopener">SiComputers – Competitive pricing</a></li>
+      </ul>
+      <h3 class="subsection-title" id="belgium"><span class="fi fi-be"></span>Belgium</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://www.alternate.be/" class="resource-link" target="_blank" rel="noopener">Alternate.be – Belgian version</a></li>
+        <li class="link-item"><a href="https://www.computerstore.be/" class="resource-link" target="_blank" rel="noopener">Computerstore.be – Free shipping, next-day delivery</a></li>
+        <li class="link-item"><a href="https://www.mediamarkt.be/" class="resource-link" target="_blank" rel="noopener">Mediamarkt.be – Low prices, large selection</a></li>
+        <li class="link-item"><a href="https://www.fnac.be/" class="resource-link" target="_blank" rel="noopener">Fnac.be – 10% discount with credit card</a></li>
+        <li class="link-item"><a href="https://www.padeg.be/" class="resource-link" target="_blank" rel="noopener">Padeg.be – Multilingual, helpful staff</a></li>
+        <li class="link-item"><a href="https://www.krefel.be/" class="resource-link" target="_blank" rel="noopener">Krefel.be – Top brands, helpful staff</a></li>
+        <li class="link-item"><a href="https://www.vandenborre.be/" class="resource-link" target="_blank" rel="noopener">Vandenborre.be – Good service, top brands</a></li>
+      </ul>
+      <h3 class="subsection-title" id="france"><span class="fi fi-fr"></span>France</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://www.topachat.com/" class="resource-link" target="_blank" rel="noopener">Topachat – Component matcher, good prices</a></li>
+        <li class="link-item"><a href="https://www.materiel.net/" class="resource-link" target="_blank" rel="noopener">Materiel.net – Reliable, premium service</a></li>
+        <li class="link-item"><a href="https://www.grosbill.com/" class="resource-link" target="_blank" rel="noopener">GrosBill – Stores around Paris</a></li>
+        <li class="link-item"><a href="https://www.rue-montgallet.com/" class="resource-link" target="_blank" rel="noopener">Rue Montgallet – Street market with direct sales</a></li>
+        <li class="link-item"><a href="https://www.ldlc.com/" class="resource-link" target="_blank" rel="noopener">LDLC – Large selection of components</a></li>
+        <li class="link-item"><a href="https://www.amazon.fr/" class="resource-link" target="_blank" rel="noopener">Amazon France – Wide marketplace</a></li>
+      </ul>
+      <h3 class="subsection-title" id="canada"><span class="fi fi-ca"></span>Canada</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://www.newegg.ca/" class="resource-link" target="_blank" rel="noopener">Newegg Canada – Large component selection</a></li>
+        <li class="link-item"><a href="https://www.canadacomputers.com/" class="resource-link" target="_blank" rel="noopener">Canada Computers – Physical stores + online</a></li>
+        <li class="link-item"><a href="https://www.memoryexpress.com/" class="resource-link" target="_blank" rel="noopener">Memory Express – Price matching</a></li>
+        <li class="link-item"><a href="https://www.mikescomputershop.com/" class="resource-link" target="_blank" rel="noopener">Mike's Computer Shop – Good customer service</a></li>
+        <li class="link-item"><a href="https://www.bestbuy.ca/" class="resource-link" target="_blank" rel="noopener">Best Buy Canada – Nationwide retailer</a></li>
+        <li class="link-item"><a href="https://www.amazon.ca/" class="resource-link" target="_blank" rel="noopener">Amazon Canada – Wide marketplace</a></li>
+      </ul>
+      <h3 class="subsection-title" id="australia"><span class="fi fi-au"></span>Australia</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://www.pccasegear.com/" class="resource-link" target="_blank" rel="noopener">PC Case Gear – Specialized in gaming hardware</a></li>
+        <li class="link-item"><a href="https://www.mwave.com.au/" class="resource-link" target="_blank" rel="noopener">Mwave – Wide selection of components</a></li>
+        <li class="link-item"><a href="https://www.scorptec.com.au/" class="resource-link" target="_blank" rel="noopener">Scorptec – Physical stores + online</a></li>
+        <li class="link-item"><a href="https://www.centrecom.com.au/" class="resource-link" target="_blank" rel="noopener">Centre Com – Competitive pricing</a></li>
+        <li class="link-item"><a href="https://www.umart.com.au/" class="resource-link" target="_blank" rel="noopener">Umart – Good for budget builds</a></li>
+        <li class="link-item"><a href="https://www.computeralliance.com.au/" class="resource-link" target="_blank" rel="noopener">Computer Alliance – Queensland-based</a></li>
+      </ul>
+      <h3 class="subsection-title" id="usa"><span class="fi fi-us"></span>United States</h3>
+      <ul class="link-list">
+        <li class="link-item"><a href="https://www.newegg.com/" class="resource-link" target="_blank" rel="noopener">Newegg – US-based electronics</a></li>
+        <li class="link-item"><a href="https://www.amazon.com/" class="resource-link" target="_blank" rel="noopener">Amazon US – Large online marketplace</a></li>
+        <li class="link-item"><a href="https://www.microcenter.com/" class="resource-link" target="_blank" rel="noopener">Micro Center – Physical stores with competitive pricing</a></li>
+        <li class="link-item"><a href="https://www.bestbuy.com/" class="resource-link" target="_blank" rel="noopener">Best Buy – Nationwide retailer</a></li>
+        <li class="link-item"><a href="https://www.bhphotovideo.com/" class="resource-link" target="_blank" rel="noopener">B&H Photo Video – Electronics retailer</a></li>
+      </ul>
+      <!-- ENDE paste-1.txt -->
+    </section>
+  </main>
+  <footer class="site-footer">
+    &copy; 2025 Vegeta-Short(cut) | Made for PC enthusiasts worldwide
+  </footer>
+  <script>
+    // Visited link tracking
+    function updateVisitedLinks() {
+      const visited = JSON.parse(localStorage.getItem('vegeta-visited') || '[]');
+      document.querySelectorAll('.resource-link').forEach(link => {
+        const linkId = link.textContent.trim();
+        link.classList.toggle('visited', visited.includes(linkId));
+      });
+    }
+    document.querySelectorAll('.resource-link').forEach(link => {
+      link.addEventListener('click', function() {
+        const linkId = this.textContent.trim();
+        const visited = JSON.parse(localStorage.getItem('vegeta-visited') || '[]');
+        if (!visited.includes(linkId)) {
+          visited.push(linkId);
+          localStorage.setItem('vegeta-visited', JSON.stringify(visited));
         }
+        updateVisitedLinks();
+      });
+    });
+    updateVisitedLinks();
 
-        // Theme-Funktionen
-        function toggleTheme() {
-            currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-            document.documentElement.setAttribute('data-theme', currentTheme);
-            localStorage.setItem('theme', currentTheme);
-            updateThemeToggleUI();
-            showToast(currentTheme === 'dark' ? 'Dark Mode aktiviert' : 'Light Mode aktiviert');
-        }
+    // Preview button (loads preview content)
+    document.querySelectorAll('.preview-btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        const url = btn.getAttribute('data-url');
+        const preview = document.getElementById('preview-techpowerup');
+        preview.style.display = preview.style.display === 'block' ? 'none' : 'block';
+        preview.innerHTML = `<iframe src="${url}" style="width:100%;height:300px;border:0;"></iframe>`;
+      });
+    });
 
-        function updateThemeToggleUI() {
-            const icon = themeToggle.querySelector('i');
-            const text = themeToggle.querySelector('span');
-            
-            if (currentTheme === 'dark') {
-                icon.className = 'fas fa-sun';
-                text.textContent = 'Light Mode';
-            } else {
-                icon.className = 'fas fa-moon';
-                text.textContent = 'Dark Mode';
-            }
-        }
-
-        // Erweiterte Suche umschalten
-        function toggleAdvancedSearch() {
-            searchAdvanced.classList.toggle('expanded');
-            const icon = searchToggle.querySelector('i');
-            const text = searchToggle.querySelector('span');
-            
-            if (searchAdvanced.classList.contains('expanded')) {
-                icon.className = 'fas fa-chevron-up';
-                text.textContent = 'Einfache Suche';
-            } else {
-                icon.className = 'fas fa-chevron-down';
-                text.textContent = 'Erweiterte Suche';
-            }
-        }
-
-        // Favoriten-Funktionen
-        function renderFavorites() {
-            const hasFavorites = favorites.length > 0;
-            favoritesContainer.classList.toggle('has-favorites', hasFavorites);
-            
-            if (!hasFavorites) return;
-            
-            favoritesList.innerHTML = '';
-            favorites.forEach(fav => {
-                const li = document.createElement('li');
-                li.className = 'link-item';
-                li.innerHTML = `
-                    <a href="${fav.url}" class="resource-link" target="_blank" rel="noopener">
-                        <span class="resource-title">${fav.title}</span>
-                        <span class="resource-description">${fav.desc}</span>
-                    </a>
-                    <button class="favorite-btn active" data-url="${fav.url}" aria-label="Aus Favoriten entfernen">
-                        <i class="fas fa-star"></i>
-                    </button>
-                `;
-                favoritesList.appendChild(li);
-            });
-            
-            // Event-Listener für Favoriten-Buttons neu anhängen
-            favoritesContainer.querySelectorAll('.favorite-btn').forEach(btn => {
-                btn.addEventListener('click', toggleFavorite);
-            });
-        }
-
-        function toggleFavorite(e) {
-            const btn = e.currentTarget;
-            const url = btn.dataset.url;
-            const title = btn.dataset.title;
-            const desc = btn.dataset.desc;
-            
-            // Prüfen, ob dieser Link bereits in Favoriten ist
-            const existingIndex = favorites.findIndex(fav => fav.url === url);
-            
-            if (existingIndex > -1) {
-                // Aus Favoriten entfernen
-                favorites.splice(existingIndex, 1);
-                btn.classList.remove('active');
-                btn.querySelector('i').className = 'far fa-star';
-                showToast('Aus Favoriten entfernt');
-            } else {
-                // Zu Favoriten hinzufügen
-                favorites.push({ url, title, desc });
-                btn.classList.add('active');
-                btn.querySelector('i').className = 'fas fa-star';
-                showToast('Zu Favoriten hinzugefügt');
-            }
-            
-            // Speichern und Favoriten aktualisieren
-            localStorage.setItem('favorites', JSON.stringify(favorites));
-            renderFavorites();
-            updateFavoriteButtons();
-        }
-
-        function clearAllFavorites() {
-            if (confirm('Möchtest du wirklich alle Favoriten löschen?')) {
-                favorites = [];
-                localStorage.setItem('favorites', JSON.stringify(favorites));
-                renderFavorites();
-                updateFavoriteButtons();
-                showToast('Alle Favoriten gelöscht');
-            }
-        }
-
-        function updateFavoriteButtons() {
-            document.querySelectorAll('.favorite-btn').forEach(btn => {
-                const url = btn.dataset.url;
-                const isFavorite = favorites.some(fav => fav.url === url);
-                
-                btn.classList.toggle('active', isFavorite);
-                btn.querySelector('i').className = isFavorite ? 'fas fa-star' : 'far fa-star';
-            });
-        }
-
-        // Suchfunktionen
-        function performSearch() {
-            const searchTerm = searchInput.value.toLowerCase().trim();
-            const category = categoryFilter.value;
-            const country = countryFilter.value;
-            
-            // Spinner anzeigen für besseres UX
-            searchSpinner.style.display = 'block';
-            noResults.style.display = 'none';
-            
-            // Alle Linkeinträge durchsuchen
-            const linkItems = document.querySelectorAll('.link-item');
-            let matchCount = 0;
-            let visibleSections = new Set();
-            
-            // Reset display
-            if (searchTerm === '' && category === 'all' && country === 'all') {
-                linkItems.forEach(item => item.style.display = '');
-                document.querySelectorAll('.card').forEach(card => card.style.display = '');
-                searchResults.classList.remove('visible');
-                searchSpinner.style.display = 'none';
-                return;
-            }
-            
-            linkItems.forEach(item => {
-                const card = item.closest('.card');
-                const countrySection = item.closest('.country-section');
-                
-                // Filtern nach Kategorie
-                let categoryMatch = category === 'all' || (card && card.id === category);
-                
-                // Filtern nach Land
-                let countryMatch = country === 'all' || (countrySection && countrySection.id === country);
-                
-                // Filtern nach Suchtext
-                const text = item.textContent.toLowerCase();
-                const textMatch = searchTerm === '' || text.includes(searchTerm);
-                
-                const isMatch = categoryMatch && countryMatch && textMatch;
-                
-                if (isMatch) {
-                    item.style.display = '';
-                    matchCount++;
-                    
-                    // Sektionen mit Treffern speichern
-                    if (card) {
-                        visibleSections.add(card.id);
-                    }
-                } else {
-                    item.style.display = 'none';
-                }
-            });
-            
-            // Karten zeigen/verstecken basierend auf Treffern
-            document.querySelectorAll('.card').forEach(card => {
-                if (card.id === 'shops-by-country') {
-                    card.style.display = '';
-                    
-                    // Ländersektionen zeigen/verstecken
-                    if (country !== 'all') {
-                        document.querySelectorAll('.country-section').forEach(section => {
-                            section.classList.toggle('hidden', section.id !== country);
-                        });
-                    }
-                } else {
-                    const hasVisibleItems = card.querySelectorAll('.link-item[style=""]').length > 0;
-                    card.style.display = hasVisibleItems ? '' : 'none';
-                }
-            });
-            
-            // Suchergebnis-Zähler aktualisieren
-            searchResults.textContent = `${matchCount} passende Ergebnisse in ${visibleSections.size} Kategorien gefunden`;
-            searchResults.classList.add('visible');
-            
-            // Keine Ergebnisse Meldung zeigen
-            if (matchCount === 0) {
-                noResults.style.display = 'block';
-            }
-            
-            searchSpinner.style.display = 'none';
-        }
-
-        // Event-Listener anhängen
-        function attachEventListeners() {
-            // Theme Toggle
-            themeToggle.addEventListener('click', toggleTheme);
-            
-            // Suche
-            searchInput.addEventListener('input', debounce(performSearch, 300));
-            clearSearchBtn.addEventListener('click', clearSearch);
-            searchToggle.addEventListener('click', toggleAdvancedSearch);
-            
-            // Suchfilter
-            categoryFilter.addEventListener('change', performSearch);
-            countryFilter.addEventListener('change', performSearch);
-            
-            // Suchtags
-            searchTags.forEach(tag => {
-                tag.addEventListener('click', function() {
-                    searchInput.value = this.dataset.search;
-                    clearSearchBtn.classList.add('visible');
-                    performSearch();
-                });
-            });
-            
-            // Favoriten
-            favoriteButtons.forEach(btn => {
-                btn.addEventListener('click', toggleFavorite);
-            });
-            clearFavoritesBtn.addEventListener('click', clearAllFavorites);
-            
-            // Ländersektionen
-            countryLinks.forEach(link => {
-                link.addEventListener('click', function() {
-                    const selectedCountry = this.getAttribute('data-country');
-                    
-                    if (this.classList.contains('active')) {
-                        showAllCountries();
-                        return;
-                    }
-                    
-                    countryLinks.forEach(l => l.classList.remove('active'));
-                    this.classList.add('active');
-                    
-                    countrySections.forEach(section => {
-                        section.classList.toggle('hidden', section.id !== selectedCountry);
-                    });
-                    
-                    // Zur ausgewählten Sektion scrollen
-                    setTimeout(() => {
-                        const section = document.getElementById(selectedCountry);
-                        if (section) {
-                            const yOffset = -120;
-                            const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
-                            window.scrollTo({ top: y, behavior: 'smooth' });
-                        }
-                    }, 100);
-                    
-                    showToast(`Zeige Shops in ${selectedCountry}`);
-                });
-            });
-            
-            // Alle Länder anzeigen
-            showAllButton.addEventListener('click', showAllCountries);
-            
-            // Back to Top Button
-            window.addEventListener('scroll', function() {
-                backToTopButton.classList.toggle('visible', window.scrollY > 300);
-            });
-            
-            backToTopButton.addEventListener('click', function() {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
-            
-            // Tastatur-Navigation
-            document.addEventListener('keydown', function(e) {
-                // ESC zum Löschen der Suche
-                if (e.key === 'Escape' && document.activeElement === searchInput) {
-                    clearSearch();
-                }
-                
-                // '/' um Suchfeld zu fokussieren
-                if (e.key === '/' && document.activeElement !== searchInput) {
-                    e.preventDefault();
-                    searchInput.focus();
-                }
-            });
-        }
-
-        // Hilfsfunktionen
-        function showAllCountries() {
-            countrySections.forEach(section => {
-                section.classList.remove('hidden');
-            });
-            
-            countryLinks.forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            showToast('Zeige alle Länder');
-        }
-
-        function clearSearch() {
-            searchInput.value = '';
-            categoryFilter.value = 'all';
-            countryFilter.value = 'all';
-            clearSearchBtn.classList.remove('visible');
-            searchResults.classList.remove('visible');
-            noResults.style.display = 'none';
-            
-            // Alle Elemente wieder anzeigen
-            document.querySelectorAll('.link-item, .card, .country-section').forEach(item => {
-                item.style.display = '';
-                item.classList.remove('hidden');
-            });
-            
-            searchInput.focus();
-            showToast('Suche zurückgesetzt');
-        }
-
-        function validateLinks() {
-            const allLinks = document.querySelectorAll('a[href]');
-            const validProtocols = ['https:', 'http:', 'mailto:', 'tel:'];
-            
-            allLinks.forEach(link => {
-                const href = link.getAttribute('href');
-                try {
-                    const url = new URL(href, window.location.href);
-                    
-                    // Externe Links mit Attributen versehen
-                    if (url.origin !== window.location.origin && validProtocols.includes(url.protocol)) {
-                        link.setAttribute('target', '_blank');
-                        link.setAttribute('rel', 'noopener noreferrer');
-                    }
-                } catch (error) {
-                    console.warn('Ungültiger Link:', href);
-                }
-            });
-        }
-
-        function showToast(message) {
-            toast.textContent = message;
-            toast.classList.add('visible');
-            
-            setTimeout(() => {
-                toast.classList.remove('visible');
-            }, 3000);
-        }
-
-        // Debounce-Funktion für bessere Performance
-        function debounce(func, wait) {
-            let timeout;
-            return function(...args) {
-                clearTimeout(timeout);
-                timeout = setTimeout(() => func.apply(this, args), wait);
-            };
-        }
-
-        // Seite initialisieren
-        document.addEventListener('DOMContentLoaded', initializePage);
-    </script>
+    // Price alert form (demo only)
+    document.getElementById('price-alert-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Price alert set! (Demo only)');
+      this.reset();
+    });
+  </script>
 </body>
 </html>
